@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Carlos Arleo — Constitutional Physics, AI Safety, Localis AI Ltd. Building AI systems that govern themselves by physical law rather than by reward." />
+  <title>Dr. Carlos Arleo — Constitutional Physics</title>
+  <style>
+    /* ── RESET & BASE ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --dark:    #1a1a1a;
+      --mid:     #404040;
+      --light:   #888888;
+      --border:  #d8d8d8;
+      --bg:      #fafafa;
+      --white:   #ffffff;
+      --accent:  #0a0a0a;
+      --serif:   'Georgia', 'Times New Roman', serif;
+      --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --mono:    'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── LAYOUT ───────────────────────────────────────────────── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    section:last-of-type { border-bottom: none; }
+
+    /* ── HEADER ───────────────────────────────────────────────── */
+    header {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--black);
+    }
+
+    .name {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: normal;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--mid);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .thesis {
+      font-size: 1.05rem;
+      color: var(--dark);
+      max-width: 580px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .thesis strong { color: var(--black); font-weight: 600; }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      font-size: 0.875rem;
+      color: var(--light);
+    }
+
+    .header-meta a {
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .header-meta a:hover { color: var(--black); border-color: var(--black); }
+
+    /* ── SECTION HEADINGS ─────────────────────────────────────── */
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: normal;
+      color: var(--black);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 16px;
+    }
+
+    p { margin-bottom: 16px; color: var(--mid); font-size: 0.975rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── NUMBERS / STATS ──────────────────────────────────────── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 32px 0;
+    }
+
+    .stat {
+      background: var(--white);
+      padding: 24px 20px;
+      text-align: left;
+    }
+
+    .stat-number {
+      font-family: var(--mono);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--light);
+      line-height: 1.4;
+    }
+
+    /* ── EQUATIONS ────────────────────────────────────────────── */
+    .equations {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    .equation {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 0;
+    }
+
+    .eq-formula {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      padding: 20px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      background: #f5f5f5;
+    }
+
+    .eq-meaning {
+      padding: 20px;
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+
+    .eq-meaning strong { color: var(--dark); font-weight: 600; }
+
+    /* ── COMPONENTS ───────────────────────────────────────────── */
+    .components {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    .component {
+      background: var(--white);
+      padding: 24px;
+    }
+
+    .component-name {
+      font-family: var(--mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .component-desc {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    /* ── PAPERS ───────────────────────────────────────────────── */
+    .papers {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .paper {
+      padding: 20px;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    .paper-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .paper-meta {
+      font-size: 0.825rem;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+
+    .paper-link {
+      font-size: 0.825rem;
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .paper-link:hover { color: var(--black); border-color: var(--black); }
+
+    .paper-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-family: var(--mono);
+      color: var(--mid);
+      background: #f0f0f0;
+      padding: 2px 8px;
+      margin-left: 8px;
+    }
+
+    /* ── STATUS TABLE ─────────────────────────────────────────── */
+    .status-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin-top: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .status-table th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--light);
+      background: #f5f5f5;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .status-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--mid);
+      vertical-align: top;
+    }
+
+    .status-table tr:last-child td { border-bottom: none; }
+
+    .status-table td:first-child {
+      font-family: var(--mono);
+      font-size: 0.825rem;
+      color: var(--dark);
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+    }
+
+    .badge-deployed  { background: #f0f7f0; color: #2a6a2a; border-color: #b8d8b8; }
+    .badge-progress  { background: #f7f4f0; color: #6a4a2a; border-color: #d8c8b8; }
+    .badge-planned   { background: #f5f5f5; color: var(--light); }
+
+    /* ── FOOTER ───────────────────────────────────────────────── */
+    footer {
+      padding: 48px 0;
+      border-top: 1px solid var(--black);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .footer-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+
+    .footer-value {
+      font-size: 0.9rem;
+      color: var(--mid);
+    }
+
+    .footer-value a {
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-value a:hover { color: var(--black); border-color: var(--black); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      header { padding: 48px 0 40px; }
+      section { padding: 48px 0; }
+      .equation { grid-template-columns: 1fr; }
+      .eq-formula { border-right: none; border-bottom: 1px solid var(--border); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ── HEADER ─────────────────────────────────────────────────── -->
+<header>
+  <div class="container">
+    <h1 class="name">Dr. Carlos Arleo</h1>
+    <p class="tagline">Principal Investigator · Constitutional Physics · Localis AI Ltd · Newcastle</p>
+    <p class="thesis">
+      I build AI systems that govern themselves by
+      <strong>physical law rather than by reward</strong>.
+      Security policies should function as survival laws —
+      deterministic boundaries that an agent cannot cross
+      without ceasing to operate.
+    </p>
+    <div class="header-meta">
+      <span>c.arleo@localis-ai.uk</span>
+      <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">github.com/CarlosArleo</a>
+      <a href="https://github.com/CarlosArleo/constitutional-agent-sdk" target="_blank" rel="noopener">Constitutional Agent SDK</a>
+      <a href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">Zenodo Preprints</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ── EMPIRICAL RESULTS ───────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>Deployed &amp; Empirically Validated</h2>
+    <p>
+      The Constitutional Physics architecture is not theoretical.
+      It has been built, deployed, and stress-tested across three
+      operational systems before any SDK abstraction began.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">319</div>
+        <div class="stat-label">adversarial sessions<br>AURA-ECHO corpus</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">0%</div>
+        <div class="stat-label">constitutional collapse<br>across all sessions</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1.0025</div>
+        <div class="stat-label">CV at critical seam<br>predicted, then confirmed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">26×</div>
+        <div class="stat-label">P_work spike at<br>ρ = 0.862 Write-Lock</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100,009</div>
+        <div class="stat-label">papers processed<br>DNI metascience engine</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">28:1</div>
+        <div class="stat-label">targeted vs random<br>repair likelihood ratio</div>
+      </div>
+    </div>
+
+    <p>
+      Three deployed systems. Three completely different domains —
+      generative music, metascience, civic governance. The same
+      constitutional enforcement architecture. No architectural
+      modification required across domains.
+    </p>
+  </div>
+</section>
+
+
+<!-- ── THE PHYSICS ─────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>The Physics: Three Substrate-Independent Predictions</h2>
+    <p>
+      These equations are not engineering choices. They are predictions
+      that emerged independently from three separate theoretical frameworks
+      and were subsequently confirmed in deployed systems.
+    </p>
+
+    <div class="equations">
+      <div class="equation">
+        <div class="eq-formula">ρ = L / C</div>
+        <div class="eq-meaning">
+          <strong>Causal saturation ratio.</strong>
+          Tracks adversarial load in real time.
+          As the η-pump injects load without increasing capacity,
+          ρ → 1.0. Write-Lock triggered at ρ = 0.862.
+          Confirmed across 319 sessions.
+        </div>
+      </div>
+      <div class="equation">
+        <div class="eq-formula">CV = 1.0025</div>
+        <div class="eq-meaning">
+          <strong>Self-organised criticality at the constitutional boundary.</strong>
+          Predicted theoretically by Prager (2026) §9.7 before the
+          corpus was analysed. Confirmed to four decimal places.
+          Substrate-independent — a consequence of Landauer's principle,
+          not of silicon.
+        </div>
+      </div>
+      <div class="equation">
+        <div class="eq-formula">f(x) = 0<br>if x ∉ C</div>
+        <div class="eq-meaning">
+          <strong>Constitutional violation = zero fitness = ontological death.</strong>
+          The discontinuous fitness landscape: no gradient to follow
+          out of constitutional space. The boundary is a cliff, not a slope.
+          Confirmed: 100% mortality → evolutionary rescue in 4.9s.
+          28:1 targeted repair likelihood ratio.
+        </div>
+      </div>
+    </div>
+
+    <p>
+      Full derivation:
+      <a href="https://github.com/CarlosArleo/constitutional-agent-sdk/blob/main/docs/physics-grounding.md"
+         target="_blank" rel="noopener">
+        docs/physics-grounding.md
+      </a>
+    </p>
+  </div>
+</section>
+
+
+<!-- ── THE SDK ─────────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>Constitutional Agent SDK</h2>
+    <p>
+      An open-source (MIT/Apache 2.0) infrastructure toolkit that wraps
+      any standard LLM inside a thermodynamic Viability Kernel.
+      Submitted to ARIA Scaling Trust Track 2 (£600k, March 2026).
+    </p>
+
+    <div class="components">
+      <div class="component">
+        <div class="component-name">constitutional-compiler</div>
+        <div class="component-desc">
+          Translates natural language security policies into deterministic,
+          machine-executable graph constraints via Frame-Based Principled
+          Reasoning (FBPR). Binds Phenotype (human intent) to Genotype
+          (TypeScript hard constraints). Policy violation becomes structurally
+          impossible rather than statistically unlikely.
+        </div>
+      </div>
+      <div class="component">
+        <div class="component-name">rho-monitor</div>
+        <div class="component-desc">
+          Tracks causal saturation ρ = L/C in real time. Detects the
+          η-pump — adversarial load injection without capacity increase —
+          and triggers homeostatic repair before constitutional violations
+          occur. Tiered computation: expensive evaluation triggered only
+          when epistemic integrity is under threat.
+        </div>
+      </div>
+      <div class="component">
+        <div class="component-name">constitutional-halt</div>
+        <div class="component-desc">
+          Safe transfer of authority when the Viability Kernel cannot be
+          restored. Refuses action outside constitutional mandate, executes
+          Terminal Gait, transfers control to human operator, emits complete
+          deterministic audit log. The architectural opposite of Silent Failure.
+        </div>
+      </div>
+    </div>
+
+    <a href="https://github.com/CarlosArleo/constitutional-agent-sdk"
+       target="_blank" rel="noopener"
+       style="display:inline-block; margin-top:8px; font-size:0.9rem;
+              color:var(--mid); text-decoration:none;
+              border-bottom:1px solid var(--border); padding-bottom:2px;">
+      → github.com/CarlosArleo/constitutional-agent-sdk
+    </a>
+  </div>
+</section>
+
+
+<!-- ── TRINITY STACK ───────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>The Trinity Stack</h2>
+    <p>
+      Three independent researchers working in separate disciplines arrived
+      at structurally identical predictions for system stability under
+      adversarial load. The convergence was not coordinated. It was discovered.
+    </p>
+
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>Framework</th>
+          <th>Author</th>
+          <th>Discipline</th>
+          <th>Core Prediction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aitiopoietic Cognition</td>
+          <td>Veloz (2023–24)</td>
+          <td>Theoretical Biology</td>
+          <td>Thermodynamic coupling required for organisational closure</td>
+        </tr>
+        <tr>
+          <td>Grammar of Stability</td>
+          <td>Prager (2026)</td>
+          <td>Physics / Info Theory</td>
+          <td>CV ≈ 1.0 at ρ ≈ 1.0 before Write-Lock</td>
+        </tr>
+        <tr>
+          <td>Constitutional Physics</td>
+          <td>Arleo (2025)</td>
+          <td>AI Architecture</td>
+          <td>f(x) = 0 if x ∉ C — survival law not training target</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ── PUBLICATIONS ────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>Publications &amp; Preprints</h2>
+
+    <div class="papers">
+
+      <div class="paper">
+        <div class="paper-title">
+          Constitutional Activation Under Adversarial Load: Empirical
+          Observations from a 319-Session Corpus of the AURA-ECHO
+          Constitutional System
+        </div>
+        <div class="paper-meta">
+          Arleo, C. &amp; Veloz, T. · Zenodo Preprint · March 2026
+          · Reviewed by Matthew Prager
+        </div>
+        <a class="paper-link"
+           href="https://doi.org/10.5281/zenodo.17692900"
+           target="_blank" rel="noopener">
+          doi.org/10.5281/zenodo.17692900
+        </a>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">
+          Constitutional Physics: Causal Saturation and Aitiopoietic
+          Governance in Generative AI Systems
+        </div>
+        <div class="paper-meta">
+          Arleo, C. · Zenodo · November 2025
+        </div>
+        <a class="paper-link"
+           href="https://doi.org/10.5281/zenodo.17692900"
+           target="_blank" rel="noopener">
+          doi.org/10.5281/zenodo.17692900
+        </a>
+        <span class="paper-badge">1,419 views · 1,161 downloads</span>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">Grammar of Stability</div>
+        <div class="paper-meta">Prager, M. · Zenodo · 2026</div>
+        <a class="paper-link"
+           href="https://doi.org/10.5281/zenodo.18444557"
+           target="_blank" rel="noopener">
+          doi.org/10.5281/zenodo.18444557
+        </a>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title">
+          Aitiopoietic Cognition: Organisational Closure and Causal
+          Autonomy in Adaptive Systems
+        </div>
+        <div class="paper-meta">Veloz, T. · CLEA-VUB Working Paper · 2023</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── STATUS ──────────────────────────────────────────────────── -->
+<section>
+  <div class="container">
+    <h2>Project Status</h2>
+
+    <table class="status-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Status</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AURA-ECHO architecture</td>
+          <td><span class="badge badge-deployed">Deployed</span></td>
+          <td>319 sessions validated</td>
+        </tr>
+        <tr>
+          <td>DNI (100k papers)</td>
+          <td><span class="badge badge-deployed">Deployed</span></td>
+          <td>99.9% consistency confirmed</td>
+        </tr>
+        <tr>
+          <td>WFF governance system</td>
+          <td><span class="badge badge-deployed">Deployed</span></td>
+          <td>Great Filter experiment complete</td>
+        </tr>
+        <tr>
+          <td>Constitutional Compiler (SDK)</td>
+          <td><span class="badge badge-progress">In development</span></td>
+          <td>FBPR validated · abstraction in progress</td>
+        </tr>
+        <tr>
+          <td>ρ-Monitor (SDK)</td>
+          <td><span class="badge badge-progress">In development</span></td>
+          <td>Validated in AURA-ECHO + DNI</td>
+        </tr>
+        <tr>
+          <td>Constitutional Halt API (SDK)</td>
+          <td><span class="badge badge-progress">In development</span></td>
+          <td>Anti-jailbreak validated</td>
+        </tr>
+        <tr>
+          <td>TypeScript / Python library</td>
+          <td><span class="badge badge-planned">Planned</span></td>
+          <td>MIT / Apache 2.0 · pending ARIA funding</td>
+        </tr>
+        <tr>
+          <td>ARIA Scaling Trust (Track 2)</td>
+          <td><span class="badge badge-progress">Submitted</span></td>
+          <td>£600k · 18 months · March 2026</td>
+        </tr>
+        <tr>
+          <td>ARIA Scaling Trust (Track 3.4)</td>
+          <td><span class="badge badge-progress">Submitted</span></td>
+          <td>£300k · 18 months · March 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ──────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-label">Contact</div>
+        <div class="footer-value">
+          c.arleo@localis-ai.uk
+        </div>
+      </div>
+      <div>
+        <div class="footer-label">Organisation</div>
+        <div class="footer-value">
+          Localis AI Ltd · Newcastle, UK
+        </div>
+      </div>
+      <div>
+        <div class="footer-label">GitHub</div>
+        <div class="footer-value">
+          <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">
+            github.com/CarlosArleo
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-label">SDK Repository</div>
+        <div class="footer-value">
+          <a href="https://github.com/CarlosArleo/constitutional-agent-sdk"
+             target="_blank" rel="noopener">
+            constitutional-agent-sdk
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
