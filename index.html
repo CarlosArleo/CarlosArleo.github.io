@@ -238,9 +238,10 @@
       white-space: nowrap;
       align-self: flex-start;
     }
-    .badge-live     { background: #f0f7f0; color: #2a6a2a; border-color: #b8d8b8; }
-    .badge-poc      { background: #f7f4f0; color: #6a4a2a; border-color: #d8c8b8; }
+    .badge-live        { background: #f0f7f0; color: #2a6a2a; border-color: #b8d8b8; }
+    .badge-poc         { background: #f7f4f0; color: #6a4a2a; border-color: #d8c8b8; }
     .badge-shortlisted { background: #f5f5f5; color: var(--mid); }
+    .badge-dev         { background: #f0f0f7; color: #2a2a6a; border-color: #b8b8d8; }
 
     /* ── CPSS FEATURE ── */
     .cpss-feature {
@@ -353,6 +354,39 @@
       line-height: 1.55;
     }
 
+    /* ── EDUCATION ── */
+    .education-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .education-row {
+      background: var(--white);
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0 24px;
+    }
+    .education-year {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--light);
+      padding-top: 2px;
+    }
+    .education-degree {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+    .education-institution {
+      font-size: 0.85rem;
+      color: var(--mid);
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 48px 0;
@@ -389,6 +423,7 @@
       .footer-grid { grid-template-columns: 1fr; }
       .instrument { grid-template-columns: 1fr; }
       .stats { grid-template-columns: repeat(2, 1fr); }
+      .education-row { grid-template-columns: 1fr; gap: 4px 0; }
     }
   </style>
 </head>
@@ -399,7 +434,7 @@
 <header>
   <div class="container">
     <h1 class="name">Carlos Arleo</h1>
-    <p class="tagline"> Architect · Regenerative Systems Architect · Urban Researcher · Newcastle, UK</p>
+    <p class="tagline">Architect · Systems Designer · AI Researcher · Newcastle, UK</p>
     <p class="thesis">
       I design systems that hold by structure, not by instruction.
     </p>
@@ -443,7 +478,7 @@
         <div class="method-label">What transfers</div>
         <div class="method-text">
           Reading complex systems. Identifying where the real constraint is.
-          Distinguishing a symptoms from a root cause. Designing for failure modes,
+          Distinguishing a symptom from a root cause. Designing for failure modes,
           not just for ideal use. Building things that can be maintained by others.
         </div>
       </div>
@@ -477,8 +512,12 @@
         <div class="instrument-left">
           <div class="instrument-name">Community Planning Support System (CPSS)</div>
           <div class="instrument-desc">
-            A tool that helps 700 + community groups participating in UK planning decisions on equal footing with professional developers. It takes local knowledge — things a community knows about their place that no consultant can know — combines it with 54 live government data feeds, and produces a statutory objection letter that meets the legal standard a planning officer is trained to evaluate. The problem isn't that communities don't know enough. It's that they can't express what they know in the form the planning system accepts. CPSS closes that gap.
-Proof of concept complete.
+            A tool that helps 800+ community groups participating in UK planning decisions on equal footing with
+            professional developers. It takes local knowledge — things a community knows about their place
+            that no consultant can know — combines it with 54 live government data feeds, and produces a
+            statutory objection letter that meets the legal standard a planning officer is trained to evaluate.
+            The problem isn't that communities don't know enough. It's that they can't express what they know
+            in the form the planning system accepts. CPSS closes that gap.
           </div>
           <div class="instrument-result">
             Proof of concept complete. Independently verified letters scoring 88–94/100 on legal compliance
@@ -503,7 +542,7 @@ Proof of concept complete.
           </div>
           <div class="instrument-result">
             Shortlisted in the Nesta / UKRI Metascience Challenge. Scored highest on the benchmark's hardest task
-            (41% vs the previous best of 31%). 100,000 papers processed. Ongoing collaboration with SPRU,
+            (55.1% vs the previous best of 31%). 100,000 papers processed. Ongoing collaboration with SPRU,
             University of Sussex.
           </div>
           <div class="instrument-links">
@@ -534,11 +573,31 @@ Proof of concept complete.
         <span class="badge badge-live">Deployed</span>
       </div>
 
+      <div class="instrument">
+        <div class="instrument-left">
+          <div class="instrument-name">Aitiopoietic LLM / PhyOS</div>
+          <div class="instrument-desc">
+            A constitutional AI substrate built from first principles — designed to compress stochastic
+            generation into thermodynamically stable, write-locked semantic primitives. Where standard
+            LLMs degrade over long contexts through hallucination drift and logical contradiction,
+            this architecture maintains coherence by locking verified reasoning into an immutable scaffold
+            and evaluating every subsequent generation against it. Causal Density, Internal Friction,
+            and Coherence are measured at inference time, not approximated after the fact.
+          </div>
+          <div class="instrument-result">
+            Phase 1 (thermodynamic monitoring layer) complete. Phase 2 (write-lock codec) in active
+            development. Joint work with Nathan (Kyuboid), who leads ML and hardware calibration.
+            Target: constitutional coherence at 1M+ token scale.
+          </div>
+        </div>
+        <span class="badge badge-dev">In development</span>
+      </div>
+
     </div>
 
     <div class="stats">
       <div class="stat">
-        <div class="stat-number">300+</div>
+        <div class="stat-number">319</div>
         <div class="stat-label">adversarial sessions<br>zero system failures</div>
       </div>
       <div class="stat">
@@ -648,12 +707,31 @@ Proof of concept complete.
 
     <div class="thread">
       <div class="thread-item">
-        <div class="thread-year">2004 – 2013</div>
-        <div class="thread-title">Architecture practice — Italy, Spain, UAE, Qatar</div>
+        <div class="thread-year">2005 – 2009</div>
+        <div class="thread-title">Early practice — Caracas, Milan</div>
         <div class="thread-body">
-          Trained in Milan, and Barcelona. Worked at OMA (Rem Koolhaas's office) in the
-          Middle East research division — large-scale urban strategy, masterplanning, infrastructure.
-          National Excellence Scholarship, Polytechnic University of Milan.
+          Part II Architect at ODA Architects (Caracas) and CNS SPA Milano — working on cultural centres,
+          stadium infrastructure, and major commercial headquarters including the Regione Lombardia building
+          with I.M. Pei. Trained in the discipline of large-scale technical delivery before moving into research.
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2008 – 2013</div>
+        <div class="thread-title">Independent practice — Barcelona, Dubai</div>
+        <div class="thread-body">
+          Independent architectural practice running parallel to academic work in Barcelona, with projects
+          across residential, hospitality, and competition work in the Gulf.
+          Second Place, National Urban and Landscape Design Competition (Pan-American Highway).
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2013 – 2015</div>
+        <div class="thread-title">OMA / AMO — Doha, Dubai</div>
+        <div class="thread-body">
+          Architect and researcher in the AMO research division of the Office for Metropolitan Architecture
+          (Rem Koolhaas). Urban strategy, masterplanning, and infrastructure at the scale of national tourism
+          policy and major transport infrastructure in Qatar and the UAE. The AMO role — architecture as
+          research instrument — became the methodological template for the AI work that followed.
         </div>
       </div>
       <div class="thread-item">
@@ -661,7 +739,8 @@ Proof of concept complete.
         <div class="thread-title">FaulknerBrowns Architects, Newcastle — urban design and research</div>
         <div class="thread-body">
           Led design on mixed-use, sports, residential, and public realm projects across the UK
-          and Ireland. Started PhD at Newcastle University on urban planning and living systems theory.
+          and Ireland. Started PhD at Newcastle University on urban planning and living systems theory
+          (on hold, 2019–present).
         </div>
       </div>
       <div class="thread-item">
@@ -671,6 +750,16 @@ Proof of concept complete.
           Village-scale regeneration focused on local craftsmanship, circular economy, and
           cultural continuity. This is where the regenerative development methodology became practical
           rather than theoretical.
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2023</div>
+        <div class="thread-title">HASSELL, London — sustainability strategy</div>
+        <div class="thread-body">
+          Senior Architect / Urban Designer leading sustainability strategy for Sohar Smart City, Oman.
+          Integrated circular economy principles, 5-minute city frameworks, and biodiversity objectives
+          across a large-scale masterplan — the last major conventional architecture commission before
+          the shift to full-time AI research.
         </div>
       </div>
       <div class="thread-item">
@@ -684,6 +773,16 @@ Proof of concept complete.
       </div>
       <div class="thread-item">
         <div class="thread-year">2024 – present</div>
+        <div class="thread-title">Project Architect, Publius / VESI — New York</div>
+        <div class="thread-body">
+          Participatory design and spatial equity work in Trenton, NJ — trust-based housing, reparative
+          planning, and community land stewardship. The civic dimension of this work directly informed
+          CPSS: the same asymmetry between community knowledge and institutional language appears in
+          planning objections as it does in housing rights.
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2024 – present</div>
         <div class="thread-title">Founder, Localis AI Ltd — constitutional AI research, Newcastle</div>
         <div class="thread-body">
           Independent research lab. Four instruments built across scientific novelty, AI governance,
@@ -693,6 +792,33 @@ Proof of concept complete.
         </div>
       </div>
     </div>
+
+    <!-- EDUCATION -->
+    <h2 style="margin-top: 48px;">Education</h2>
+    <div class="education-grid">
+      <div class="education-row">
+        <div class="education-year">2019 – present</div>
+        <div>
+          <div class="education-degree">PhD Candidate (on hold) — Architecture, Planning and Landscape</div>
+          <div class="education-institution">Newcastle University</div>
+        </div>
+      </div>
+      <div class="education-row">
+        <div class="education-year">2010</div>
+        <div>
+          <div class="education-degree">M.Arch. — Theory and Practice of Architectural Design</div>
+          <div class="education-institution">Polytechnic University of Catalonia (ETSAB / UPC), Barcelona</div>
+        </div>
+      </div>
+      <div class="education-row">
+        <div class="education-year">2007</div>
+        <div>
+          <div class="education-degree">M.Arch. — Theoretical and Technological Aspects in Architecture</div>
+          <div class="education-institution">Polytechnic University of Milan (Politecnico di Milano) · National Excellence Scholarship</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -706,7 +832,7 @@ Proof of concept complete.
 
       <div style="padding:20px; border:1px solid var(--border); background:var(--white);">
         <div style="font-size:0.95rem; font-weight:600; color:var(--dark); margin-bottom:6px; line-height:1.4;">
-          Constitutional Physics: Empirical Validation of Aitiopoietic Cognition in Artificial Governance Systems
+          Constitutional Activation Under Adversarial Load: Empirical Observations from a 319-Session Corpus of the AURA-ECHO Constitutional System
         </div>
         <div style="font-size:0.825rem; color:var(--light); margin-bottom:8px;">
           Arleo, C. &amp; Veloz, T. · Zenodo · March 2026 · Reviewed by Matthew Prager (NYU)
@@ -720,14 +846,14 @@ Proof of concept complete.
 
       <div style="padding:20px; border:1px solid var(--border); background:var(--white);">
         <div style="font-size:0.95rem; font-weight:600; color:var(--dark); margin-bottom:6px; line-height:1.4;">
-          Constitutional Physics: Empirical Validation of Aitiopoietic Cognition in Artificial Substrates
+          Constitutional Physics: Causal Saturation and Aitiopoietic Governance in Generative AI Systems
         </div>
         <div style="font-size:0.825rem; color:var(--light); margin-bottom:8px;">
           Arleo, C. · Zenodo · November 2025
         </div>
         <a style="font-size:0.825rem; color:var(--mid); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:1px;"
            href="https://zenodo.org/records/19616290" target="_blank" rel="noopener">
-          https://zenodo.org/records/19616290
+          zenodo.org/records/19616290
         </a>
       </div>
 
