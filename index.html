@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Carlos Arleo — Constitutional Physics, AI Safety, Localis AI Ltd. Building AI systems that govern themselves by physical law rather than by reward." />
-  <title>Carlos Arleo — Constitutional Physics</title>
+  <title>Carlos Arleo</title>
   <style>
-    /* ── RESET & BASE ─────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -17,7 +15,6 @@
       --border:  #d8d8d8;
       --bg:      #fafafa;
       --white:   #ffffff;
-      --accent:  #0a0a0a;
       --serif:   'Georgia', 'Times New Roman', serif;
       --sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
       --mono:    'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
@@ -33,7 +30,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── LAYOUT ───────────────────────────────────────────────── */
     .container {
       max-width: 760px;
       margin: 0 auto;
@@ -46,10 +42,10 @@
     }
     section:last-of-type { border-bottom: none; }
 
-    /* ── HEADER ───────────────────────────────────────────────── */
+    /* ── HEADER ── */
     header {
       padding: 80px 0 64px;
-      border-bottom: 1px solid var(--black);
+      border-bottom: 2px solid var(--black);
     }
 
     .name {
@@ -59,221 +55,225 @@
       color: var(--black);
       letter-spacing: -0.02em;
       line-height: 1.1;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .tagline {
-      font-size: 1rem;
-      color: var(--mid);
-      margin-bottom: 24px;
-      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--light);
+      margin-bottom: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
     .thesis {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--dark);
-      max-width: 580px;
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+      font-family: var(--serif);
+      font-style: italic;
+    }
+
+    .sub-thesis {
+      font-size: 0.975rem;
+      color: var(--mid);
+      max-width: 600px;
       line-height: 1.65;
       margin-bottom: 32px;
     }
 
-    .thesis strong { color: var(--black); font-weight: 600; }
-
-    .header-meta {
+    .header-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px 24px;
+      gap: 8px 20px;
       font-size: 0.875rem;
-      color: var(--light);
     }
 
-    .header-meta a {
+    .header-links a {
       color: var(--mid);
       text-decoration: none;
       border-bottom: 1px solid var(--border);
       padding-bottom: 1px;
       transition: color 0.15s, border-color 0.15s;
     }
-    .header-meta a:hover { color: var(--black); border-color: var(--black); }
+    .header-links a:hover { color: var(--black); border-color: var(--black); }
+    .header-links span { color: var(--light); }
 
-    /* ── SECTION HEADINGS ─────────────────────────────────────── */
+    /* ── SECTION HEADINGS ── */
     h2 {
       font-family: var(--serif);
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       font-weight: normal;
       color: var(--black);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       letter-spacing: -0.01em;
     }
 
-    h3 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 16px;
+    .section-intro {
+      font-size: 0.975rem;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 660px;
     }
 
-    p { margin-bottom: 16px; color: var(--mid); font-size: 0.975rem; }
-    p:last-child { margin-bottom: 0; }
-
-    /* ── NUMBERS / STATS ──────────────────────────────────────── */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin: 32px 0;
+    /* ── THREAD / TIMELINE ── */
+    .thread {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 2px solid var(--border);
+      margin: 8px 0 0 10px;
+      padding-left: 28px;
     }
 
-    .stat {
-      background: var(--white);
-      padding: 24px 20px;
-      text-align: left;
+    .thread-item {
+      padding-bottom: 32px;
+      position: relative;
     }
 
-    .stat-number {
+    .thread-item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background: var(--black);
+      border: 2px solid var(--bg);
+      outline: 2px solid var(--black);
+    }
+
+    .thread-item:last-child { padding-bottom: 0; }
+
+    .thread-year {
       font-family: var(--mono);
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--black);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
       font-size: 0.78rem;
       color: var(--light);
-      line-height: 1.4;
+      margin-bottom: 4px;
+      letter-spacing: 0.06em;
     }
 
-    /* ── EQUATIONS ────────────────────────────────────────────── */
-    .equations {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin: 24px 0;
-    }
-
-    .equation {
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 0;
-    }
-
-    .eq-formula {
-      font-family: var(--mono);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--black);
-      padding: 20px;
-      border-right: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      background: #f5f5f5;
-    }
-
-    .eq-meaning {
-      padding: 20px;
-      font-size: 0.875rem;
-      color: var(--mid);
-      line-height: 1.5;
-    }
-
-    .eq-meaning strong { color: var(--dark); font-weight: 600; }
-
-    /* ── COMPONENTS ───────────────────────────────────────────── */
-    .components {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin: 24px 0;
-    }
-
-    .component {
-      background: var(--white);
-      padding: 24px;
-    }
-
-    .component-name {
-      font-family: var(--mono);
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--black);
-      margin-bottom: 8px;
-    }
-
-    .component-desc {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.55;
-    }
-
-    /* ── PAPERS ───────────────────────────────────────────────── */
-    .papers {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .paper {
-      padding: 20px;
-      border: 1px solid var(--border);
-      background: var(--white);
-    }
-
-    .paper-title {
-      font-size: 0.95rem;
+    .thread-title {
+      font-size: 0.975rem;
       font-weight: 600;
       color: var(--dark);
       margin-bottom: 6px;
-      line-height: 1.4;
     }
 
-    .paper-meta {
-      font-size: 0.825rem;
-      color: var(--light);
-      margin-bottom: 8px;
+    .thread-body {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.6;
     }
 
-    .paper-link {
+    /* ── INSTRUMENTS / PROJECTS ── */
+    .instruments {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+
+    .instrument {
+      background: var(--white);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0 16px;
+    }
+
+    .instrument-left { min-width: 0; }
+
+    .instrument-name {
+      font-family: var(--mono);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .instrument-desc {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.55;
+      margin-bottom: 10px;
+    }
+
+    .instrument-result {
       font-size: 0.825rem;
+      color: var(--dark);
+      font-style: italic;
+    }
+
+    .instrument-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .instrument-link {
+      font-size: 0.8rem;
       color: var(--mid);
       text-decoration: none;
       border-bottom: 1px solid var(--border);
       padding-bottom: 1px;
-      transition: color 0.15s, border-color 0.15s;
-    }
-    .paper-link:hover { color: var(--black); border-color: var(--black); }
-
-    .paper-badge {
-      display: inline-block;
-      font-size: 0.75rem;
       font-family: var(--mono);
-      color: var(--mid);
-      background: #f0f0f0;
-      padding: 2px 8px;
-      margin-left: 8px;
+      white-space: nowrap;
+    }
+    .instrument-link:hover { color: var(--black); border-color: var(--black); }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+    .badge-live     { background: #f0f7f0; color: #2a6a2a; border-color: #b8d8b8; }
+    .badge-poc      { background: #f7f4f0; color: #6a4a2a; border-color: #d8c8b8; }
+    .badge-shortlisted { background: #f5f5f5; color: var(--mid); }
+
+    /* ── CPSS FEATURE ── */
+    .cpss-feature {
+      border: 2px solid var(--black);
+      background: var(--white);
+      padding: 32px;
+      margin-top: 8px;
     }
 
-    /* ── STATUS TABLE ─────────────────────────────────────────── */
-    .status-table {
+    .cpss-headline {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--black);
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .cpss-body {
+      font-size: 0.9rem;
+      color: var(--mid);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.875rem;
-      margin-top: 16px;
+      margin-top: 8px;
       border: 1px solid var(--border);
     }
-
-    .status-table th {
+    .roadmap th {
       text-align: left;
       padding: 10px 14px;
       font-size: 0.78rem;
@@ -284,61 +284,97 @@
       background: #f5f5f5;
       border-bottom: 1px solid var(--border);
     }
-
-    .status-table td {
+    .roadmap td {
       padding: 12px 14px;
       border-bottom: 1px solid var(--border);
       color: var(--mid);
       vertical-align: top;
+      font-size: 0.875rem;
     }
-
-    .status-table tr:last-child td { border-bottom: none; }
-
-    .status-table td:first-child {
+    .roadmap tr:last-child td { border-bottom: none; }
+    .roadmap td:first-child {
       font-family: var(--mono);
-      font-size: 0.825rem;
+      font-size: 0.8rem;
       color: var(--dark);
       white-space: nowrap;
     }
 
-    .badge {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      padding: 2px 8px;
+    /* ── STATS ROW ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
+      margin: 28px 0 0;
+    }
+    .stat {
+      background: var(--white);
+      padding: 20px 16px;
+    }
+    .stat-number {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--light);
+      line-height: 1.4;
     }
 
-    .badge-deployed  { background: #f0f7f0; color: #2a6a2a; border-color: #b8d8b8; }
-    .badge-progress  { background: #f7f4f0; color: #6a4a2a; border-color: #d8c8b8; }
-    .badge-planned   { background: #f5f5f5; color: var(--light); }
+    /* ── METHOD BRIDGE ── */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+    .method-cell {
+      background: var(--white);
+      padding: 20px;
+    }
+    .method-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+    .method-text {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.55;
+    }
 
-    /* ── FOOTER ───────────────────────────────────────────────── */
+    /* ── FOOTER ── */
     footer {
       padding: 48px 0;
-      border-top: 1px solid var(--black);
+      border-top: 2px solid var(--black);
     }
-
     .footer-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      gap: 28px 40px;
     }
-
     .footer-label {
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--light);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-
     .footer-value {
       font-size: 0.9rem;
       color: var(--mid);
     }
-
     .footer-value a {
       color: var(--mid);
       text-decoration: none;
@@ -346,13 +382,12 @@
     }
     .footer-value a:hover { color: var(--black); border-color: var(--black); }
 
-    /* ── RESPONSIVE ───────────────────────────────────────────── */
     @media (max-width: 600px) {
       header { padding: 48px 0 40px; }
       section { padding: 48px 0; }
-      .equation { grid-template-columns: 1fr; }
-      .eq-formula { border-right: none; border-bottom: 1px solid var(--border); }
+      .method-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
+      .instrument { grid-template-columns: 1fr; }
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
@@ -360,219 +395,245 @@
 
 <body>
 
-<!-- ── HEADER ─────────────────────────────────────────────────── -->
+<!-- HEADER -->
 <header>
   <div class="container">
     <h1 class="name">Carlos Arleo</h1>
-    <p class="tagline">Principal Investigator · Constitutional Physics · Localis AI Ltd · Newcastle</p>
+    <p class="tagline">Architect · Systems Designer · AI Researcher · Newcastle, UK</p>
     <p class="thesis">
-      I build AI systems that govern themselves by
-      <strong>physical law rather than by reward</strong>.
-      Security policies should function as survival laws —
-      deterministic boundaries that an agent cannot cross
-      without ceasing to operate.
+      I design systems that hold by structure, not by instruction.
     </p>
-    <div class="header-meta">
+    <p class="sub-thesis">
+      My background is architecture — fifteen years designing cities, housing, and public space across
+      Europe, the Middle East, Africa, and the Americas. That training taught me to think in whole systems:
+      how parts relate, where things fail, what a place is actually for. I now apply the same approach
+      to AI systems, governance tools, and civic technology. The thread connecting all of it is the same
+      question: how do you build something that behaves well under pressure, not just when conditions are ideal?
+    </p>
+    <div class="header-links">
       <span>c.arleo@localis-ai.uk</span>
       <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">github.com/CarlosArleo</a>
-      <a href="https://github.com/CarlosArleo/constitutional-agent-sdk" target="_blank" rel="noopener">Constitutional Agent SDK</a>
+      <a href="https://carlosarleo.github.io/" target="_blank" rel="noopener">Portfolio</a>
       <a href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">Zenodo Preprints</a>
     </div>
   </div>
 </header>
 
 
-<!-- ── EMPIRICAL RESULTS ───────────────────────────────────────── -->
+<!-- THE BRIDGE -->
 <section>
   <div class="container">
-    <h2>Deployed &amp; Empirically Validated</h2>
-    <p>
-      The Constitutional Physics architecture is not theoretical.
-      It has been built, deployed, and stress-tested across three
-      operational systems before any SDK abstraction began.
+    <h2>From buildings to systems</h2>
+    <p class="section-intro">
+      Architecture and AI systems design look like different disciplines. In practice, they share the same underlying problem:
+      you are designing something complex that will be used by people who didn't build it,
+      in conditions you can't fully predict. The methodology transfers.
     </p>
+
+    <div class="method-grid">
+      <div class="method-cell">
+        <div class="method-label">Architecture</div>
+        <div class="method-text">
+          Understand the place before touching it. Map what already exists —
+          social, ecological, historical. Build from what's real, not from an abstract brief.
+          Design for the whole system, not just the object.
+        </div>
+      </div>
+      <div class="method-cell">
+        <div class="method-label">What transfers</div>
+        <div class="method-text">
+          Reading complex systems. Identifying where the real constraint is.
+          Distinguishing a symptoms from a root cause. Designing for failure modes,
+          not just for ideal use. Building things that can be maintained by others.
+        </div>
+      </div>
+      <div class="method-cell">
+        <div class="method-label">Systems design</div>
+        <div class="method-text">
+          Understand the problem before writing code. Map the failure modes.
+          Encode the rules that must hold as hard constraints — not suggestions,
+          not preferences. Build instruments that behave the same way under pressure as they do in testing.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- WHAT I'VE BUILT -->
+<section>
+  <div class="container">
+    <h2>What I've built</h2>
+    <p class="section-intro">
+      Four instruments across completely unrelated fields — scientific research, AI governance, music, and civic planning.
+      Each was built from scratch, in a domain I had no prior technical experience in.
+      Each one produced the same underlying pattern: when you encode the rules that must hold as hard constraints
+      rather than learned preferences, the system becomes measurably more robust, more auditable, and more trustworthy.
+    </p>
+
+    <div class="instruments">
+
+      <div class="instrument">
+        <div class="instrument-left">
+          <div class="instrument-name">Community Planning Support System (CPSS)</div>
+          <div class="instrument-desc">
+            A tool that helps community groups participate in UK planning decisions on equal footing with
+            professional developers. It takes local knowledge — things a community knows about their place
+            that no consultant can know — combines it with 54 live government data feeds, and produces a
+            statutory objection letter that meets the legal standard a planning officer is trained to evaluate.
+            The problem isn't that communities don't know enough. It's that they can't express what they know
+            in the form the planning system accepts. CPSS closes that gap.
+          </div>
+          <div class="instrument-result">
+            Proof of concept complete. Independently verified letters scoring 88–94/100 on legal compliance
+            across three test cases (Carrington, Lapwing, Mowbray). Partnership with the Community Planning
+            Alliance (300+ UK organisations). National Lottery Fund application in preparation.
+          </div>
+          <div class="instrument-links">
+            <a class="instrument-link" href="https://wff-regenerative-demo.vercel.app/" target="_blank" rel="noopener">→ Live demo</a>
+          </div>
+        </div>
+        <span class="badge badge-poc">Proof of concept</span>
+      </div>
+
+      <div class="instrument">
+        <div class="instrument-left">
+          <div class="instrument-name">Darwinian Novelty Indicator (DNI v4.0)</div>
+          <div class="instrument-desc">
+            A system that measures whether a scientific paper is genuinely new — not just different-sounding,
+            but actually advancing knowledge. It uses five independent reviewers who each read the paper and
+            argue about it; a second round triggers automatically when they disagree too much.
+            The scoring is transparent: you can see exactly why a paper received the score it did.
+          </div>
+          <div class="instrument-result">
+            Shortlisted in the Nesta / UKRI Metascience Challenge. Scored highest on the benchmark's hardest task
+            (41% vs the previous best of 31%). 100,000 papers processed. Ongoing collaboration with SPRU,
+            University of Sussex.
+          </div>
+          <div class="instrument-links">
+            <a class="instrument-link" href="https://dni-metascience-v4.vercel.app/dni" target="_blank" rel="noopener">→ Live demo</a>
+          </div>
+        </div>
+        <span class="badge badge-shortlisted">Shortlisted · UKRI</span>
+      </div>
+
+      <div class="instrument">
+        <div class="instrument-left">
+          <div class="instrument-name">AURA-ECHO</div>
+          <div class="instrument-desc">
+            A neurosymbolic music system — built as a test environment for the constitutional AI architecture —
+            that generates music under adversarial conditions. The interesting result wasn't the music.
+            It was the behaviour under attack: 319 sessions of deliberate attempts to break the system's
+            governing rules, zero successes. The system doesn't just refuse bad instructions; it detects
+            when the load on its decision-making is being artificially inflated and responds before
+            a violation can occur.
+          </div>
+          <div class="instrument-result">
+            Produced the empirical validation of the Constitutional Physics framework.
+            Co-authored preprint with Dr. Tomas Veloz (Vrije Universiteit Brussel).
+            Endorsed by Audrey Tang, former Digital Minister of Taiwan.
+            1,800+ preprint downloads.
+          </div>
+        </div>
+        <span class="badge badge-live">Deployed</span>
+      </div>
+
+    </div>
 
     <div class="stats">
       <div class="stat">
         <div class="stat-number">319</div>
-        <div class="stat-label">adversarial sessions<br>AURA-ECHO corpus</div>
+        <div class="stat-label">adversarial sessions<br>zero system failures</div>
       </div>
       <div class="stat">
-        <div class="stat-number">0%</div>
-        <div class="stat-label">constitutional collapse<br>across all sessions</div>
+        <div class="stat-number">100k</div>
+        <div class="stat-label">papers scored<br>DNI metascience</div>
       </div>
       <div class="stat">
-        <div class="stat-number">1.0025</div>
-        <div class="stat-label">CV at critical seam<br>predicted, then confirmed</div>
+        <div class="stat-number">94/100</div>
+        <div class="stat-label">CPSS letter score<br>independent legal review</div>
       </div>
       <div class="stat">
-        <div class="stat-number">26×</div>
-        <div class="stat-label">P_work spike at<br>ρ = 0.862 Write-Lock</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">100,009</div>
-        <div class="stat-label">papers processed<br>DNI metascience engine</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">28:1</div>
-        <div class="stat-label">targeted vs random<br>repair likelihood ratio</div>
+        <div class="stat-number">300+</div>
+        <div class="stat-label">UK community<br>planning organisations</div>
       </div>
     </div>
-
-    <p>
-      Three deployed systems. Three completely different domains —
-      generative music, metascience, civic governance. The same
-      constitutional enforcement architecture. No architectural
-      modification required across domains.
-    </p>
   </div>
 </section>
 
 
-<!-- ── THE PHYSICS ─────────────────────────────────────────────── -->
+<!-- CPSS FEATURE -->
 <section>
   <div class="container">
-    <h2>The Physics: Three Substrate-Independent Predictions</h2>
-    <p>
-      These equations are not engineering choices. They are predictions
-      that emerged independently from three separate theoretical frameworks
-      and were subsequently confirmed in deployed systems.
+    <h2>Current focus — Community Planning Support System</h2>
+    <p class="section-intro">
+      The CPSS is the most concrete application of the methodology to date.
+      It takes a technical architecture developed across AI safety research and applies it
+      to one of the most practically urgent asymmetries in British civic life.
     </p>
 
-    <div class="equations">
-      <div class="equation">
-        <div class="eq-formula">ρ = L / C</div>
-        <div class="eq-meaning">
-          <strong>Causal saturation ratio.</strong>
-          Tracks adversarial load in real time.
-          As the η-pump injects load without increasing capacity,
-          ρ → 1.0. Write-Lock triggered at ρ = 0.862.
-          Confirmed across 319 sessions.
-        </div>
-      </div>
-      <div class="equation">
-        <div class="eq-formula">CV = 1.0025</div>
-        <div class="eq-meaning">
-          <strong>Self-organised criticality at the constitutional boundary.</strong>
-          Predicted theoretically by Prager (2026) §9.7 before the
-          corpus was analysed. Confirmed to four decimal places.
-          Substrate-independent — a consequence of Landauer's principle,
-          not of silicon.
-        </div>
-      </div>
-      <div class="equation">
-        <div class="eq-formula">f(x) = 0<br>if x ∉ C</div>
-        <div class="eq-meaning">
-          <strong>Constitutional violation = zero fitness = ontological death.</strong>
-          The discontinuous fitness landscape: no gradient to follow
-          out of constitutional space. The boundary is a cliff, not a slope.
-          Confirmed: 100% mortality → evolutionary rescue in 4.9s.
-          28:1 targeted repair likelihood ratio.
-        </div>
-      </div>
+    <div class="cpss-feature">
+      <p class="cpss-headline">
+        "Community groups know their place better than any consultant. They just can't express what they
+        know in the form the planning system requires."
+      </p>
+      <p class="cpss-body">
+        When a developer applies to build on a flood plain or a peat bog or a community park,
+        they arrive with a professional legal team, environmental surveys, and planning statements that cite
+        the right policy paragraphs. The community group arrives with local knowledge, genuine concern,
+        and a deadline measured in weeks.
+      </p>
+      <p class="cpss-body">
+        CPSS doesn't replace the community's knowledge — it translates it. You tell the system what you know
+        about your place. It cross-references that against 54 government data feeds, checks it against
+        relevant case law, and produces a letter in the statutory language that a planning officer is required
+        to consider. The letter is verifiable: every claim it makes is traceable back to a real data source
+        or a real legal precedent.
+      </p>
+      <p class="cpss-body">
+        The proof of concept is complete. We are now preparing for the next stage: expanding the
+        community partnership network, securing funding, and moving toward a governed, community-owned
+        service.
+      </p>
     </div>
 
-    <p>
-      Full derivation:
-      <a href="https://github.com/CarlosArleo/constitutional-agent-sdk/blob/main/docs/physics-grounding.md"
-         target="_blank" rel="noopener">
-        docs/physics-grounding.md
-      </a>
-    </p>
-  </div>
-</section>
-
-
-<!-- ── THE SDK ─────────────────────────────────────────────────── -->
-<section>
-  <div class="container">
-    <h2>Constitutional Agent SDK</h2>
-    <p>
-      An open-source (MIT/Apache 2.0) infrastructure toolkit that wraps
-      any standard LLM inside a thermodynamic Viability Kernel.
-      Submitted to ARIA Scaling Trust Track 2 (£600k, March 2026).
-    </p>
-
-    <div class="components">
-      <div class="component">
-        <div class="component-name">constitutional-compiler</div>
-        <div class="component-desc">
-          Translates natural language security policies into deterministic,
-          machine-executable graph constraints via Frame-Based Principled
-          Reasoning (FBPR). Binds Phenotype (human intent) to Genotype
-          (TypeScript hard constraints). Policy violation becomes structurally
-          impossible rather than statistically unlikely.
-        </div>
-      </div>
-      <div class="component">
-        <div class="component-name">rho-monitor</div>
-        <div class="component-desc">
-          Tracks causal saturation ρ = L/C in real time. Detects the
-          η-pump — adversarial load injection without capacity increase —
-          and triggers homeostatic repair before constitutional violations
-          occur. Tiered computation: expensive evaluation triggered only
-          when epistemic integrity is under threat.
-        </div>
-      </div>
-      <div class="component">
-        <div class="component-name">constitutional-halt</div>
-        <div class="component-desc">
-          Safe transfer of authority when the Viability Kernel cannot be
-          restored. Refuses action outside constitutional mandate, executes
-          Terminal Gait, transfers control to human operator, emits complete
-          deterministic audit log. The architectural opposite of Silent Failure.
-        </div>
-      </div>
-    </div>
-
-    <a href="https://github.com/CarlosArleo/constitutional-agent-sdk"
-       target="_blank" rel="noopener"
-       style="display:inline-block; margin-top:8px; font-size:0.9rem;
-              color:var(--mid); text-decoration:none;
-              border-bottom:1px solid var(--border); padding-bottom:2px;">
-      → github.com/CarlosArleo/constitutional-agent-sdk
-    </a>
-  </div>
-</section>
-
-
-<!-- ── TRINITY STACK ───────────────────────────────────────────── -->
-<section>
-  <div class="container">
-    <h2>The Trinity Stack</h2>
-    <p>
-      Three independent researchers working in separate disciplines arrived
-      at structurally identical predictions for system stability under
-      adversarial load. The convergence was not coordinated. It was discovered.
-    </p>
-
-    <table class="status-table">
+    <br>
+    <h2 style="margin-top: 8px;">CPSS roadmap</h2>
+    <table class="roadmap">
       <thead>
         <tr>
-          <th>Framework</th>
-          <th>Author</th>
-          <th>Discipline</th>
-          <th>Core Prediction</th>
+          <th>Stage</th>
+          <th>What it means</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Aitiopoietic Cognition</td>
-          <td>Veloz (2023–24)</td>
-          <td>Theoretical Biology</td>
-          <td>Thermodynamic coupling required for organisational closure</td>
+          <td>Proof of concept</td>
+          <td>System built and producing legally-verified output across three real UK planning cases.
+              Constitutional architecture validated. Partnership with Community Planning Alliance established.</td>
+          <td><span class="badge badge-live">Complete</span></td>
         </tr>
         <tr>
-          <td>Grammar of Stability</td>
-          <td>Prager (2026)</td>
-          <td>Physics / Info Theory</td>
-          <td>CV ≈ 1.0 at ρ ≈ 1.0 before Write-Lock</td>
+          <td>Pilot deployment</td>
+          <td>Selected community groups in the CPA network use the system on live cases.
+              We learn what works in practice, collect feedback, and refine the interface.
+              National Lottery Fund application in preparation.</td>
+          <td><span class="badge badge-poc">In preparation</span></td>
         </tr>
         <tr>
-          <td>Constitutional Physics</td>
-          <td>Arleo (2025)</td>
-          <td>AI Architecture</td>
-          <td>f(x) = 0 if x ∉ C — survival law not training target</td>
+          <td>Governed service</td>
+          <td>CPSS becomes a community-governed tool — not owned by a company, but by the
+              network of organisations that use it. Transparent pricing, hardship waivers,
+              and an open governance structure that reflects who the system is for.</td>
+          <td><span class="badge badge-shortlisted">Year 2–3</span></td>
+        </tr>
+        <tr>
+          <td>Open architecture</td>
+          <td>The underlying constitutional architecture — the part that ensures the system
+              can only produce claims it can verify — released as open-source infrastructure
+              for other civic tools to build on.</td>
+          <td><span class="badge badge-shortlisted">Year 3</span></td>
         </tr>
       </tbody>
     </table>
@@ -580,62 +641,98 @@
 </section>
 
 
-<!-- ── PUBLICATIONS ────────────────────────────────────────────── -->
+<!-- BACKGROUND THREAD -->
 <section>
   <div class="container">
-    <h2>Publications &amp; Preprints</h2>
+    <h2>Background</h2>
+    <p class="section-intro">
+      The AI work didn't come from nowhere. It's the most recent expression of a methodology
+      that developed across fifteen years of practice in architecture, planning, and regenerative development.
+    </p>
 
-    <div class="papers">
+    <div class="thread">
+      <div class="thread-item">
+        <div class="thread-year">2004 – 2013</div>
+        <div class="thread-title">Architecture practice — Italy, Spain, UAE, Qatar</div>
+        <div class="thread-body">
+          Trained in Milan, and Barcelona. Worked at OMA (Rem Koolhaas's office) in the
+          Middle East research division — large-scale urban strategy, masterplanning, infrastructure.
+          National Excellence Scholarship, Polytechnic University of Milan.
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2016 – 2019</div>
+        <div class="thread-title">FaulknerBrowns Architects, Newcastle — urban design and research</div>
+        <div class="thread-body">
+          Led design on mixed-use, sports, residential, and public realm projects across the UK
+          and Ireland. Started PhD at Newcastle University on urban planning and living systems theory.
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2020 – present</div>
+        <div class="thread-title">Co-founder, Atelier Terre — regenerative design, Morocco</div>
+        <div class="thread-body">
+          Village-scale regeneration focused on local craftsmanship, circular economy, and
+          cultural continuity. This is where the regenerative development methodology became practical
+          rather than theoretical.
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2024 – present</div>
+        <div class="thread-title">Senior Lead Architect, GreenHouse — Africa and Caribbean</div>
+        <div class="thread-body">
+          Large-scale masterplans in Zambia, Gabon, Zimbabwe, and Jamaica applying Five Capitals
+          frameworks to model socio-ecological flows. Designed the governance protocols that became
+          the precursor to the constitutional AI architecture.
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-year">2024 – present</div>
+        <div class="thread-title">Founder, Localis AI Ltd — constitutional AI research, Newcastle</div>
+        <div class="thread-body">
+          Independent research lab. Four instruments built across scientific novelty, AI governance,
+          music, and civic planning. Two ARIA Scaling Trust proposals submitted (£900k total).
+          Co-authoring research with Dr. Tomas Veloz (VUB Brussels). Collaboration with
+          SPRU, University of Sussex.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="paper">
-        <div class="paper-title">
-          Constitutional Activation Under Adversarial Load: Empirical
-          Observations from a 319-Session Corpus of the AURA-ECHO
-          Constitutional System
+
+<!-- PUBLICATIONS -->
+<section>
+  <div class="container">
+    <h2>Publications &amp; preprints</h2>
+
+    <div style="display:flex; flex-direction:column; gap:16px; margin-top:8px;">
+
+      <div style="padding:20px; border:1px solid var(--border); background:var(--white);">
+        <div style="font-size:0.95rem; font-weight:600; color:var(--dark); margin-bottom:6px; line-height:1.4;">
+          Constitutional Activation Under Adversarial Load: Empirical Observations from a 319-Session Corpus of the AURA-ECHO Constitutional System
         </div>
-        <div class="paper-meta">
-          Arleo, C. &amp; Veloz, T. · Zenodo Preprint · March 2026
-          · Reviewed by Matthew Prager
+        <div style="font-size:0.825rem; color:var(--light); margin-bottom:8px;">
+          Arleo, C. &amp; Veloz, T. · Zenodo · March 2026 · Reviewed by Matthew Prager (NYU)
         </div>
-        <a class="paper-link"
-           href="https://doi.org/10.5281/zenodo.17692900"
-           target="_blank" rel="noopener">
+        <a style="font-size:0.825rem; color:var(--mid); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:1px;"
+           href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">
           doi.org/10.5281/zenodo.17692900
         </a>
+        <span style="font-size:0.78rem; font-family:var(--mono); color:var(--mid); background:#f0f0f0; padding:2px 8px; margin-left:8px;">1,800+ downloads</span>
       </div>
 
-      <div class="paper">
-        <div class="paper-title">
-          Constitutional Physics: Causal Saturation and Aitiopoietic
-          Governance in Generative AI Systems
+      <div style="padding:20px; border:1px solid var(--border); background:var(--white);">
+        <div style="font-size:0.95rem; font-weight:600; color:var(--dark); margin-bottom:6px; line-height:1.4;">
+          Constitutional Physics: Causal Saturation and Aitiopoietic Governance in Generative AI Systems
         </div>
-        <div class="paper-meta">
+        <div style="font-size:0.825rem; color:var(--light); margin-bottom:8px;">
           Arleo, C. · Zenodo · November 2025
         </div>
-        <a class="paper-link"
-           href="https://doi.org/10.5281/zenodo.17692900"
-           target="_blank" rel="noopener">
-          doi.org/10.5281/zenodo.17692900
+        <a style="font-size:0.825rem; color:var(--mid); text-decoration:none; border-bottom:1px solid var(--border); padding-bottom:1px;"
+           href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">
+          doi.org/10.5281/zenodo.19616290
         </a>
-        <span class="paper-badge">1,419 views · 1,161 downloads</span>
-      </div>
-
-      <div class="paper">
-        <div class="paper-title">Grammar of Stability</div>
-        <div class="paper-meta">Prager, M. · Zenodo · 2026</div>
-        <a class="paper-link"
-           href="https://doi.org/10.5281/zenodo.18444557"
-           target="_blank" rel="noopener">
-          doi.org/10.5281/zenodo.18444557
-        </a>
-      </div>
-
-      <div class="paper">
-        <div class="paper-title">
-          Aitiopoietic Cognition: Organisational Closure and Causal
-          Autonomy in Adaptive Systems
-        </div>
-        <div class="paper-meta">Veloz, T. · CLEA-VUB Working Paper · 2023</div>
       </div>
 
     </div>
@@ -643,102 +740,28 @@
 </section>
 
 
-<!-- ── STATUS ──────────────────────────────────────────────────── -->
-<section>
-  <div class="container">
-    <h2>Project Status</h2>
-
-    <table class="status-table">
-      <thead>
-        <tr>
-          <th>Component</th>
-          <th>Status</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>AURA-ECHO architecture</td>
-          <td><span class="badge badge-deployed">Deployed</span></td>
-          <td>319 sessions validated</td>
-        </tr>
-        <tr>
-          <td>DNI (100k papers)</td>
-          <td><span class="badge badge-deployed">Deployed</span></td>
-          <td>99.9% consistency confirmed</td>
-        </tr>
-        <tr>
-          <td>WFF governance system</td>
-          <td><span class="badge badge-deployed">Deployed</span></td>
-          <td>Great Filter experiment complete</td>
-        </tr>
-        <tr>
-          <td>Constitutional Compiler (SDK)</td>
-          <td><span class="badge badge-progress">In development</span></td>
-          <td>FBPR validated · abstraction in progress</td>
-        </tr>
-        <tr>
-          <td>ρ-Monitor (SDK)</td>
-          <td><span class="badge badge-progress">In development</span></td>
-          <td>Validated in AURA-ECHO + DNI</td>
-        </tr>
-        <tr>
-          <td>Constitutional Halt API (SDK)</td>
-          <td><span class="badge badge-progress">In development</span></td>
-          <td>Anti-jailbreak validated</td>
-        </tr>
-        <tr>
-          <td>TypeScript / Python library</td>
-          <td><span class="badge badge-planned">Planned</span></td>
-          <td>MIT / Apache 2.0 · pending ARIA funding</td>
-        </tr>
-        <tr>
-          <td>ARIA Scaling Trust (Track 2)</td>
-          <td><span class="badge badge-progress">Submitted</span></td>
-          <td>£600k · 18 months · March 2026</td>
-        </tr>
-        <tr>
-          <td>ARIA Scaling Trust (Track 3.4)</td>
-          <td><span class="badge badge-progress">Submitted</span></td>
-          <td>£300k · 18 months · March 2026</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-
-<!-- ── FOOTER ──────────────────────────────────────────────────── -->
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
         <div class="footer-label">Contact</div>
-        <div class="footer-value">
-          c.arleo@localis-ai.uk
-        </div>
+        <div class="footer-value">c.arleo@localis-ai.uk</div>
       </div>
       <div>
         <div class="footer-label">Organisation</div>
-        <div class="footer-value">
-          Localis AI Ltd · Newcastle, UK
-        </div>
+        <div class="footer-value">Localis AI Ltd · Newcastle, UK</div>
       </div>
       <div>
         <div class="footer-label">GitHub</div>
         <div class="footer-value">
-          <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">
-            github.com/CarlosArleo
-          </a>
+          <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">github.com/CarlosArleo</a>
         </div>
       </div>
       <div>
-        <div class="footer-label">SDK Repository</div>
+        <div class="footer-label">Community Planning</div>
         <div class="footer-value">
-          <a href="https://github.com/CarlosArleo/constitutional-agent-sdk"
-             target="_blank" rel="noopener">
-            constitutional-agent-sdk
-          </a>
+          <a href="https://wff-regenerative-demo.vercel.app/" target="_blank" rel="noopener">CPSS demo →</a>
         </div>
       </div>
     </div>
