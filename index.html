@@ -512,40 +512,51 @@
         <div class="instrument-left">
           <div class="instrument-name">Community Planning Support System (CPSS)</div>
           <div class="instrument-desc">
-            A tool that helps 700+ community groups participating in UK planning decisions on equal footing with
-            professional developers. It takes local knowledge — things a community knows about their place
-            that no consultant can know — combines it with 54 live government data feeds, and produces a
-            statutory objection letter that meets the legal standard a planning officer is trained to evaluate.
-            The problem isn't that communities don't know enough. It's that they can't express what they know
-            in the form the planning system accepts. CPSS closes that gap.
+            A constitutional AI platform that puts 54 live UK government data feeds into the hands of community
+            groups fighting planning applications. Enter a postcode, and the system instantly maps Green Belt
+            status, flood zones, protected habitats, environmental deprivation, and planning history — then
+            cross-references every constraint against the exact NPPF paragraph or Act section it triggers. A
+            built-in document library reads developer submissions and extracts the numbers that matter. A
+            circulation tool sends briefings to your list. The next release adds the full statutory objection
+            letter — passed through a four-validator forensic check for factual accuracy, planning-law compliance,
+            internal consistency, and tone before it reaches you.
           </div>
           <div class="instrument-result">
-            Proof of concept complete. 
+            Live at <a href="http://yourplanningvoice.com" style="color: var(--mid);">yourplanningvoice.com</a>.
+            Deploying with the Community Planning Alliance (800+ UK community organisations). Independent legal
+            verification on live cases: 88–93% objection strength. Crowdfunding target: £30,000. National Lottery
+            Community Fund application in preparation.
           </div>
-
         </div>
-        <span class="badge badge-poc">Proof of concept</span>
+        <span class="badge badge-live">Live · Deploying with CPA</span>
       </div>
 
       <div class="instrument">
         <div class="instrument-left">
-          <div class="instrument-name">Darwinian Novelty Indicator (DNI v4.0)</div>
+          <div class="instrument-name">Darwinian Novelty Indicator (DNI v6.0)</div>
           <div class="instrument-desc">
-            A system that measures whether a scientific paper is genuinely new — not just different-sounding,
-            but actually advancing knowledge. It uses five independent reviewers who each read the paper and
-            argue about it; a second round triggers automatically when they disagree too much.
-            The scoring is transparent: you can see exactly why a paper received the score it did.
+            A retrieval-augmented, multi-judge system that measures whether a scientific paper is genuinely
+            novel. It reads the full manuscript, retrieves the actual cited references from OpenAlex, Crossref,
+            and Semantic Scholar in real time, and runs a panel of 5–10 adversarial AI judges — each with
+            independently mutated weights — across four dimensions: Uniqueness, Tension, Synthesis, and
+            Coherence. Disagreement triggers a second panel rather than being averaged away. A hardcoded
+            integrity layer — the Review Cap, the epistemic groundedness screen, and the Coherence Veto —
+            corrects the output in code, not in prompts. Think of it as a thermometer, not a judge: the LLM
+            measures against a scale; it doesn't get to decide what "novel" means.
           </div>
           <div class="instrument-result">
-            Shortlisted in the Nesta / UKRI Metascience Challenge. Scored highest on the benchmark's hardest task
-            (55.1% vs the previous best of 31%). 100,000 papers processed. Ongoing collaboration with SPRU,
-            University of Sussex.
+            Special Mention, UKRI Metascience Novelty Indicators Challenge. Highest individual metric score
+            on the Liu &amp; Zhai (2026) axiomatic benchmark (73.0% overall; 55.1% on the hardest axiom vs.
+            the previous best of 6%). Piloting with the Research on Research Institute (RoRI) for integration
+            into their Funder Data Platform. Calibration study with SPRU, University of Sussex, in development.
+            Published on the RoRI Substack; technical companion on Zenodo.
           </div>
           <div class="instrument-links">
             <a class="instrument-link" href="https://dni-metascience-v4.vercel.app/dni" target="_blank" rel="noopener">→ Live demo</a>
+            <a class="instrument-link" href="https://doi.org/10.5281/zenodo.21508045" target="_blank" rel="noopener">→ Technical companion (Zenodo)</a>
           </div>
         </div>
-        <span class="badge badge-shortlisted">Shortlisted · UKRI</span>
+        <span class="badge badge-live">Live · Pilot with RoRI</span>
       </div>
 
       <div class="instrument">
@@ -588,7 +599,66 @@
         </div>
         <span class="badge badge-dev">In development</span>
       </div>
+      <div class="instrument">
+        <div class="instrument-left">
+          <div class="instrument-name">AEOLUS — Constitutional AI for Net‑Zero Planning</div>
+          <div class="instrument-desc">
+            A neuro‑symbolic platform that generates legally compliant, physically grounded decarbonisation
+            and flexibility plans for public‑sector buildings. An LLM proposes, but five deterministic engines
+            (energy, building physics, biodiversity, climate risk, finance) and a panel of constitutional judges
+            verify every output before it reaches the user. The system cannot converge on a hallucination.
+          </div>
+          <div class="instrument-result">
+            Validated on four real, unseen public‑sector baselines — an NHS Trust, a London borough’s housing stock,
+            and two university campuses — producing investment‑grade, regulation‑compliant blueprints in under
+            three minutes each. Combined results: 32,334 tCO₂e annual reductions, £8.9 M annual savings,
+            +£8.4 M NPV. Currently being extended for real‑time consumer‑led flexibility (Innovate UK CLF
+            competition application submitted).
+          </div>
+          <div class="instrument-links">
+            <a class="instrument-link" href="#" target="_blank" rel="noopener">→ Case study reports</a>
+          </div>
+        </div>
+        <span class="badge badge-live">Live · 4 pilots</span>
+      </div>
 
+      <div class="instrument">
+        <div class="instrument-left">
+          <div class="instrument-name">OIKOS — Passivhaus Compliance Verification Engine</div>
+          <div class="instrument-desc">
+            A neuro‑symbolic system that reads architectural documents, extracts physical parameters,
+            and checks them against the deterministic Passivhaus numeric thresholds across seven climate zones
+            and five certification pathways. The LLM never decides compliance — a hard‑coded genotype makes
+            every determination, and five expert AI personas review the results for physical plausibility,
+            buildability risk, and documentation completeness.
+          </div>
+          <div class="instrument-result">
+            Built and type‑checked across 11 document types and 12 criteria. Successfully verified a PHI‑published
+            Passivhaus example on its first run with 10/10 extraction accuracy. Awaiting real‑world messy‑document
+            testing.
+          </div>
+        </div>
+        <span class="badge badge-poc">Proof of concept</span>
+      </div>
+
+      <div class="instrument">
+        <div class="instrument-left">
+          <div class="instrument-name">Quantumeon — Executable Social Theory</div>
+          <div class="instrument-desc">
+            A compiler that translates formal sociological theory (Bourdieu, Weber, Durkheim, Granovetter,
+            Coleman, Giddens) into executable agent architectures. Each concept is extracted, operationalised
+            into computational variables, integrated into decision models, and validated against known
+            empirical distributions — producing populations of 10,000+ theory‑grounded agents that can be
+            run, tested, and audited. Not an LLM generating plausible personas; a compiler generating
+            scientifically valid agent populations.
+          </div>
+          <div class="instrument-result">
+            Theoretical framework complete. First Bourdieu capital‑vector agents operationalised.
+            Next: full multi‑theorist compilation and large‑scale simulation.
+          </div>
+        </div>
+        <span class="badge badge-dev">In development</span>
+      </div>
     </div>
 
     <div class="stats">
@@ -596,9 +666,14 @@
         <div class="stat-number">319</div>
         <div class="stat-label">adversarial sessions<br>zero system failures</div>
       </div>
+
       <div class="stat">
         <div class="stat-number">100k</div>
         <div class="stat-label">papers scored<br>DNI metascience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">32,334</div>
+        <div class="stat-label">tCO₂e annual reduction<br>across 4 public‑sector pilots</div>
       </div>
       <div class="stat">
         <div class="stat-number">94/100</div>
@@ -607,6 +682,10 @@
       <div class="stat">
         <div class="stat-number">700+</div>
         <div class="stat-label">UK community<br>planning organisations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">£8.9M</div>
+        <div class="stat-label">annual energy bill savings<br>identified by AEOLUS</div>
       </div>
     </div>
   </div>
