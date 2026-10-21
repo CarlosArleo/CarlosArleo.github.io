@@ -2,1239 +2,192 @@
 <!-- Copyright (c) 2026 Carlos Arleo / Localis AI Limited. All Rights Reserved. -->
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Carlos Arleo — Localis AI</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --ink:      #111111;
-    --mid:      #4a4a4a;
-    --soft:     #7a7a7a;
-    --hair:     #e2e2e2;
-    --paper:    #fbfaf7;
-    --white:    #ffffff;
-    --accent:   #8b2c1f;
-    --serif:    'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
-    --sans:     -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-    --mono:     'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  }
-
-  html { font-size: 17px; scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-    font-feature-settings: "kern" 1, "liga" 1;
-  }
-
-  .wrap {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 32px;
-  }
-
-  section {
-    padding: 72px 0;
-    border-top: 1px solid var(--hair);
-  }
-  section:first-of-type { border-top: none; }
-
-  /* ── HEADER ── */
-  header {
-    padding: 96px 0 72px;
-  }
-
-  .name {
-    font-family: var(--serif);
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    margin-bottom: 20px;
-  }
-
-  .tagline {
-    font-size: 0.85rem;
-    color: var(--soft);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-  }
-
-  .lede {
-    font-family: var(--serif);
-    font-size: 1.35rem;
-    font-style: italic;
-    line-height: 1.55;
-    color: var(--ink);
-    max-width: 620px;
-    margin-bottom: 28px;
-    letter-spacing: -0.005em;
-  }
-
-  .lede-body {
-    font-size: 1rem;
-    color: var(--mid);
-    line-height: 1.7;
-    max-width: 620px;
-    margin-bottom: 40px;
-  }
-  .lede-body p + p { margin-top: 14px; }
-  .lede-body strong { color: var(--ink); font-weight: 600; }
-
-  .contact {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--soft);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 24px;
-  }
-  .contact a {
-    color: var(--mid);
-    text-decoration: none;
-    border-bottom: 1px solid var(--hair);
-    padding-bottom: 1px;
-    transition: color 0.15s, border-color 0.15s;
-  }
-  .contact a:hover { color: var(--ink); border-color: var(--ink); }
-
-  /* ── SECTION HEADINGS ── */
-  h2 {
-    font-family: var(--serif);
-    font-size: 1.6rem;
-    font-weight: 400;
-    letter-spacing: -0.01em;
-    margin-bottom: 10px;
-  }
-
-  .section-kicker {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--soft);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-  }
-
-  .section-intro {
-    font-size: 0.98rem;
-    color: var(--mid);
-    line-height: 1.7;
-    max-width: 620px;
-    margin-bottom: 40px;
-  }
-
-  /* ── EMPIRICAL FOUNDATION ── */
-  .findings {
-    margin-top: 8px;
-  }
-
-  .finding {
-    display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 0 24px;
-    padding: 24px 0;
-    border-top: 1px solid var(--hair);
-  }
-  .finding:first-child { border-top: none; padding-top: 0; }
-
-  .finding-num {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--soft);
-    padding-top: 4px;
-  }
-
-  .finding-title {
-    font-family: var(--serif);
-    font-size: 1.15rem;
-    line-height: 1.4;
-    margin-bottom: 8px;
-  }
-
-  .finding-body {
-    font-size: 0.94rem;
-    color: var(--mid);
-    line-height: 1.65;
-  }
-  .finding-body strong { color: var(--ink); font-weight: 600; }
-
-  /* ── SYSTEMS ── */
-  .system {
-    padding: 28px 0;
-    border-top: 1px solid var(--hair);
-  }
-  .system:first-of-type { border-top: none; padding-top: 0; }
-
-  .system-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-  }
-
-  .system-title {
-    font-family: var(--serif);
-    font-size: 1.2rem;
-    line-height: 1.35;
-  }
-
-  .system-domain {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--soft);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .system-body {
-    font-size: 0.94rem;
-    color: var(--mid);
-    line-height: 1.65;
-    margin-bottom: 12px;
-  }
-  .system-body strong { color: var(--ink); font-weight: 600; }
-  .system-body code {
-    font-family: var(--mono);
-    font-size: 0.85em;
-    background: rgba(0,0,0,0.04);
-    padding: 1px 5px;
-    border-radius: 2px;
-  }
-
-  .system-result {
-    font-size: 0.9rem;
-    color: var(--mid);
-    line-height: 1.65;
-    padding-left: 20px;
-    border-left: 2px solid var(--hair);
-  }
-  .system-result p + p { margin-top: 6px; }
-  .system-result strong { color: var(--ink); font-weight: 600; }
-
-  .system-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px 20px;
-    margin-top: 14px;
-    font-family: var(--mono);
-    font-size: 0.78rem;
-  }
-  .system-links a {
-    color: var(--mid);
-    text-decoration: none;
-    border-bottom: 1px solid var(--hair);
-    padding-bottom: 1px;
-    transition: color 0.15s, border-color 0.15s;
-  }
-  .system-links a:hover { color: var(--ink); border-color: var(--ink); }
-
-  .status {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--soft);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 2px 0;
-  }
-  .status-live   { color: #2e6b2e; }
-  .status-pilot  { color: #2a4e77; }
-  .status-review { color: #8b5a1f; }
-
-  /* ── TRAJECTORY ── */
-  .trajectory {
-    margin-top: 8px;
-  }
-
-  .traj-item {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 0 28px;
-    padding: 20px 0;
-    border-top: 1px solid var(--hair);
-  }
-  .traj-item:first-child { border-top: none; padding-top: 0; }
-
-  .traj-year {
-    font-family: var(--mono);
-    font-size: 0.74rem;
-    color: var(--soft);
-    letter-spacing: 0.05em;
-    padding-top: 4px;
-  }
-
-  .traj-role {
-    font-size: 0.98rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 4px;
-    line-height: 1.4;
-  }
-
-  .traj-place {
-    font-size: 0.88rem;
-    color: var(--soft);
-    margin-bottom: 6px;
-  }
-
-  .traj-body {
-    font-size: 0.9rem;
-    color: var(--mid);
-    line-height: 1.6;
-  }
-
-  /* ── PUBLICATIONS ── */
-  .pub {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4px 24px;
-    padding: 20px 0;
-    border-top: 1px solid var(--hair);
-  }
-  .pub:first-of-type { border-top: none; padding-top: 0; }
-
-  .pub-title {
-    font-size: 0.98rem;
-    font-weight: 600;
-    line-height: 1.5;
-    margin-bottom: 4px;
-  }
-
-  .pub-meta {
-    font-size: 0.85rem;
-    color: var(--soft);
-    line-height: 1.5;
-  }
-  .pub-meta a {
-    color: var(--mid);
-    text-decoration: none;
-    border-bottom: 1px solid var(--hair);
-  }
-  .pub-meta a:hover { color: var(--ink); border-color: var(--ink); }
-
-  .pub-status {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--soft);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding-top: 3px;
-    white-space: nowrap;
-  }
-
-  /* ── EDUCATION ── */
-  .edu {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 0 28px;
-    padding: 16px 0;
-    border-top: 1px solid var(--hair);
-  }
-  .edu:first-of-type { border-top: none; padding-top: 0; }
-
-  .edu-year {
-    font-family: var(--mono);
-    font-size: 0.74rem;
-    color: var(--soft);
-    padding-top: 3px;
-  }
-
-  .edu-degree {
-    font-size: 0.96rem;
-    font-weight: 600;
-    margin-bottom: 3px;
-    line-height: 1.45;
-  }
-
-  .edu-inst {
-    font-size: 0.87rem;
-    color: var(--mid);
-    line-height: 1.5;
-  }
-
-  /* ── RECOGNITION ── */
-  .recog {
-    padding: 14px 0;
-    border-top: 1px solid var(--hair);
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4px 24px;
-    font-size: 0.92rem;
-  }
-  .recog:first-of-type { border-top: none; padding-top: 0; }
-
-  .recog-name { color: var(--ink); font-weight: 500; }
-  .recog-year {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--soft);
-    padding-top: 3px;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    padding: 64px 0 80px;
-    border-top: 1px solid var(--hair);
-  }
-
-  .foot-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 28px 32px;
-  }
-
-  .foot-label {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--soft);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 6px;
-  }
-
-  .foot-value {
-    font-size: 0.88rem;
-    color: var(--mid);
-    line-height: 1.55;
-  }
-  .foot-value a {
-    color: var(--mid);
-    text-decoration: none;
-    border-bottom: 1px solid var(--hair);
-  }
-  .foot-value a:hover { color: var(--ink); border-color: var(--ink); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 620px) {
-    .wrap { padding: 0 22px; }
-    header { padding: 56px 0 48px; }
-    section { padding: 52px 0; }
-    .finding { grid-template-columns: 1fr; gap: 4px; }
-    .finding-num { padding-top: 0; }
-    .traj-item, .edu { grid-template-columns: 1fr; gap: 6px; }
-    .traj-year, .edu-year { padding-top: 0; }
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1a18;--mid:#4d4b46;--soft:#76736c;--hair:#e3e0d8;--paper:#fbfaf7;--link:#1f4e8c;
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--ink:#ece9e2;--mid:#b9b6ae;--soft:#8c8981;--hair:#2f2e2b;--paper:#161615;--link:#8db4e8;color-scheme:dark}
+}
+:root[data-theme="dark"]{--ink:#ece9e2;--mid:#b9b6ae;--soft:#8c8981;--hair:#2f2e2b;--paper:#161615;--link:#8db4e8;color-scheme:dark}
+html{font-size:17px;scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:700px;margin:0 auto;padding:0 28px}
+header{padding:88px 0 56px}
+section{padding:52px 0;border-top:1px solid var(--hair)}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6vw,3.2rem);letter-spacing:-.02em;line-height:1.1;margin-bottom:10px}
+h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:18px}
+.role{color:var(--soft);font-size:.95rem;margin-bottom:32px}
+.lede{font-family:var(--serif);font-size:1.3rem;line-height:1.5;margin-bottom:20px}
+p{color:var(--mid);font-size:.97rem;max-width:62ch}
+p+p{margin-top:12px}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--hair)}
+a:hover{border-color:var(--link)}
+.contact{margin-top:28px;font-size:.9rem;display:flex;flex-wrap:wrap;gap:4px 22px;color:var(--mid)}
+.item{padding:20px 0;border-top:1px solid var(--hair)}
+.item:first-of-type{border-top:0;padding-top:0}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:6px 16px;flex-wrap:wrap;margin-bottom:6px}
+.title{font-family:var(--serif);font-size:1.12rem;line-height:1.35}
+.tag{font-size:.82rem;color:var(--soft)}
+.links{margin-top:10px;display:flex;flex-wrap:wrap;gap:4px 18px;font-size:.88rem}
+.row{display:grid;grid-template-columns:120px 1fr;gap:0 24px;padding:16px 0;border-top:1px solid var(--hair)}
+.row:first-of-type{border-top:0;padding-top:0}
+.when{font-size:.85rem;color:var(--soft);padding-top:2px}
+.what{font-weight:600;font-size:.97rem;line-height:1.45}
+.where{font-size:.88rem;color:var(--soft);margin-bottom:4px}
+.row p{font-size:.92rem}
+ul{list-style:none}
+li{color:var(--mid);font-size:.95rem;padding:7px 0;border-top:1px solid var(--hair)}
+li:first-child{border-top:0;padding-top:0}
+li strong{font-weight:600}
+footer{padding:44px 0 72px;border-top:1px solid var(--hair);font-size:.88rem;color:var(--soft)}
+footer p{font-size:.88rem;max-width:none}
+@media (max-width:620px){.wrap{padding:0 22px}header{padding:56px 0 40px}.row{grid-template-columns:1fr;gap:2px}}
 </style>
 </head>
-
 <body>
 
-<!-- ── HEADER ── -->
-<header>
-  <div class="wrap">
-    <h1 class="name">Carlos Arleo</h1>
-    <p class="tagline">Systems Architect · AI Safety Researcher · Founder, Localis AI · Newcastle, UK</p>
+<header><div class="wrap">
+  <h1>Carlos Arleo</h1>
+  <p class="role">Architect and researcher · Founder, Localis AI · Newcastle upon Tyne, UK</p>
+  <p class="lede">I build tools that help people examine planning decisions and public data.</p>
+  <p>I’m an architect with fifteen years of practice across Europe, the Gulf, Africa and the Americas. My research now combines urban theory, statistical analysis of planning data, and software in which an AI model proposes and a set of explicit rules checks the result.</p>
+  <div class="contact">
+    <a href="mailto:c.arleo@localis-ai.uk">c.arleo@localis-ai.uk</a>
+    <a href="https://carlosarleo.github.io" target="_blank" rel="noopener">carlosarleo.github.io</a>
+    <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">Zenodo</a>
+  </div>
+</div></header>
 
-    <p class="lede">
-      I design artificial intelligence systems that hold by structural constraint, not by instruction.
-    </p>
+<section><div class="wrap">
+  <h2>Current projects</h2>
 
-    <div class="lede-body">
-      <p>
-        Fifteen years of urban masterplanning and spatial systems design across Europe, the Middle East,
-        Africa, and the Americas taught me that complex systems cannot be governed by behavioural training alone.
-        I develop <strong>Constitutional Physics</strong> and <strong>Aitiopoietic Cognition</strong> — a general-purpose,
-        neurosymbolic methodology that binds generative language models to deterministic mathematical rules,
-        physical engines, and verified legal frameworks.
-      </p>
-      <p>
-        Across eight distinct domains, this architecture makes misalignment, hallucination, and structural
-        failure thermodynamically expensive or code-level impossible.
-      </p>
-    </div>
+  <div class="item">
+    <div class="head"><div class="title">Your Planning Voice</div><div class="tag">In use</div></div>
+    <p>A tool that helps community groups draft planning objections grounded in planning policy. An AI model drafts, and rule-based checks stop anything the evidence doesn’t support. It has been used on three live cases (Carrington Moss, Lapwing Green Spaces, Mowbray BESS) and is developed with the Community Planning Alliance.</p>
+    <div class="links"><a href="https://yourplanningvoice.com/landing" target="_blank" rel="noopener">yourplanningvoice.com</a></div>
+  </div>
 
-    <div class="contact">
-      <span>c.arleo@localis-ai.uk</span>
-      <a href="https://carlosarleo.github.io" target="_blank" rel="noopener">carlosarleo.github.io</a>
-      <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">github.com/CarlosArleo</a>
-      <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">Zenodo</a>
+  <div class="item">
+    <div class="head"><div class="title">Darwinian Novelty Indicator</div><div class="tag">In testing</div></div>
+    <p>A tool that assesses how novel a piece of research is by comparing it with retrieved prior work. Tested on the Liu &amp; Zhai (2026) benchmark. An earlier version received a Special Mention in the UKRI Metascience Novelty Indicators Challenge, and a calibration study with SPRU at the University of Sussex is in development.</p>
+    <div class="links">
+      <a href="https://dni-5-0-functions.vercel.app/dni" target="_blank" rel="noopener">Live demo</a>
+      <a href="https://researchonresearchinstitute.substack.com/p/can-ai-tell-if-your-research-is-actually" target="_blank" rel="noopener">RoRI article</a>
+      <a href="https://doi.org/10.5281/zenodo.21508045" target="_blank" rel="noopener">Technical companion</a>
     </div>
   </div>
-</header>
 
-
-<!-- ── METHODOLOGICAL FOUNDATION ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Methodological Foundation</p>
-    <h2>Constitutional Physics</h2>
-    <p class="section-intro">
-      Standard reinforcement learning (RLHF) produces <em>allopoietic</em> systems that learn what aligned
-      output looks like without possessing an existential stake in structural validity. The Aitiopoietic
-      Methodology re-introduces thermodynamic coupling, turning structural coherence into an operational
-      condition of existence. The LLM operates as a thermometer, not a judge: domain axioms, statutory
-      laws, and physical equations are encoded as hard-coded selection pressures that execute after
-      generation. Unrecoverable structural contradictions trip an automated, inference-layer
-      <strong>Constitutional Halt</strong>.
-    </p>
+  <div class="item">
+    <div class="head"><div class="title">Ariadne</div><div class="tag">Research stage</div></div>
+    <p>A system for generating and screening drug-repurposing hypotheses for rare diseases, with human review before any lead is used. Under a collaboration agreement with the Platt Lab at the University of Oxford, one of its predictions will be tested experimentally.</p>
+    <div class="links"><a href="https://ariadne-atlas.vercel.app/" target="_blank" rel="noopener">Interactive atlas</a></div>
   </div>
-</section>
 
+  <div class="item">
+    <div class="head"><div class="title">Aeolus</div><div class="tag">Tested on three estates</div></div>
+    <p>A decarbonisation planning tool for public-sector estates that links AI-generated proposals to established energy and carbon models. Tested on Leeds Teaching Hospitals NHS Trust, Lewisham Council Housing and Bournemouth University.</p>
+  </div>
 
-<!-- ── EMPIRICAL FOUNDATION ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Empirical Foundation</p>
-    <h2>Audit of English Planning</h2>
-    <p class="section-intro">
-      A two-year computational-statutory audit of the English statutory planning system: a federated
-      spatial pipeline cross-referencing contested planning sites against 65 live open-government
-      spatial layers. The canonical cohort is a locked, de-duplicated <strong>N = 652</strong> contested
-      sites, drawn from a gross harvest of N = 852 grassroots campaigns through a seven-stage
-      sample-flow attrition funnel.
-    </p>
-
-    <div class="findings">
-
-      <div class="finding">
-        <div class="finding-num">01</div>
-        <div>
-          <div class="finding-title">The Defensibility Gap — two axes</div>
-          <div class="finding-body">
-            Statutory protection does not scale uniformly with wealth. Ecological shields skew affluent:
-            Ancient Woodland buffer proximity returns <strong>OR = 4.88, p = 8.4 × 10⁻⁶</strong>.
-            Built-heritage protection runs the opposite way: Heritage at Risk skews deprived at
-            <strong>OR = 7.54, p = 3.2 × 10⁻⁵</strong>. The composite with the flood term removed holds at
-            <strong>p = 0.0017</strong>. What the gap measures is a disparity in affluence-linked,
-            preventative shields specifically — not statutory protection as a single category.
-          </div>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="finding-num">02</div>
-        <div>
-          <div class="finding-title">Speculative capital concentrates on the best farmland</div>
-          <div class="finding-body">
-            Grid-scale energy capital intersects provisional Best and Most Versatile agricultural land at
-            <strong>72.7%</strong>; strategic residential sprawl at <strong>54.2%</strong>; logistics at
-            <strong>50.0%</strong>; urban infill at <strong>46.6%</strong>. Pearson's χ² on the 4 × 2
-            contingency table: <strong>χ² = 12.72, df = 3, p = 0.0053</strong>.
-          </div>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="finding-num">03</div>
-        <div>
-          <div class="finding-title">Ecological data scarcity peaks in the middle</div>
-          <div class="finding-body">
-            Data deserts are non-monotonic across deprivation. <strong>34.9%</strong> of contested sites
-            sit in an Ecological Data Desert (fewer than 5,000 historical records within 1 km), peaking
-            at <strong>47.4%</strong> in IoD2025 decile 6 — the commuter-belt fringe. No detectable class
-            difference overall: <strong>p = 0.34</strong>.
-          </div>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="finding-num">04</div>
-        <div>
-          <div class="finding-title">The state's own data infrastructure fails</div>
-          <div class="finding-body">
-            Three services, three distinct failure modes, one vantage point, one day. <strong>HM Land
-            Registry INSPIRE</strong>: scripted requests refused at the Cloudflare edge (403); a manual
-            browser capture returned <code>Service WFS is disabled</code>. <strong>HSE Major Accident Hazard
-            Pipelines</strong>: no national service found by the pipeline. <strong>Coal / MRA</strong>:
-            configured addresses invalid (HTTP 200 carrying an "Invalid URL" error); the layer is
-            discoverable through the public catalogue and answers correctly.
-          </div>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="finding-num">05</div>
-        <div>
-          <div class="finding-title">Labour constituencies carry the compound vulnerability</div>
-          <div class="finding-body">
-            Of the 47 canonical Triple-Jeopardy sites (IoD2025 ≤ 3 and IMED ≤ 3), <strong>41 (87.2%)</strong>
-            fall in Labour-held constituencies versus 41.8% of non-TJ sites — a disparity of
-            <strong>+45.4 pp</strong>, with <strong>OR = 9.51 [3.98, 22.73], Fisher's exact
-            p = 7.4 × 10⁻¹⁰</strong>. Robust under whole-thesis Bonferroni.
-          </div>
-        </div>
-      </div>
-
-      <div class="finding">
-        <div class="finding-num">06</div>
-        <div>
-          <div class="finding-title">The outcome is a clean null</div>
-          <div class="finding-body">
-            Of 606 decided sites with a resolved NBN count, <strong>546 permitted and 60 refused</strong> —
-            a 90.1% developer success rate. Data-desert sites show no detectable difference in permission
-            (<strong>OR = 0.98 [0.56, 1.71], Fisher p = 1.00</strong>); unresolved corporate ownership
-            OR = 0.75, p = 0.34. The consultation-stage asymmetry does not translate into a detectable
-            difference in the binary permit/refuse outcome — bounding the thesis to the consultation side.
-          </div>
-        </div>
-      </div>
-
+  <div class="item">
+    <div class="head"><div class="title">Phyora / PhyOS</div><div class="tag">Preprints</div></div>
+    <p>An experimental layer that monitors an AI model while it runs and halts it when its behaviour becomes inconsistent. Described in the two Constitutional Physics preprints.</p>
+    <div class="links">
+      <a href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">Preprint 1</a>
+      <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">Preprint 2</a>
     </div>
   </div>
-</section>
 
-
-<!-- ── SYSTEMS BUILT ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Systems Built</p>
-    <h2>Eight Substrate Proofs</h2>
-    <p class="section-intro">
-      The methodology's generality rests on empirical validation across eight unrelated, high-stakes
-      application domains — each constructed from first principles to demonstrate substrate-independent
-      governance.
-    </p>
-
-    <div class="systems">
-
-      <!-- YPV -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">Your Planning Voice — Civic Planning Defence</div>
-          <div class="system-domain">Live · CPA Network</div>
-        </div>
-        <div class="system-body">
-          A constitutional platform for UK statutory planning defence. Ingests 54 live UK government data
-          feeds (DLUHC, Natural England, Environment Agency, Historic England) and runs developer documents
-          through 13 Zod extraction schemas. Enforces a 4-validator forensic manifold — the Case-Law Factbook
-          (including <em>R (Finch) [2024] UKSC 20</em>), a 23-rule forbidden-string corpus, an Archetype ×
-          Ground matrix, and a Citation Provenance validator — with an automated hard stop at forensic
-          score &lt; 40.
-        </div>
-        <div class="system-result">
-          <p><strong>88–93% independent legal verification</strong> across live cases: Carrington Moss, Lapwing Green Spaces, Mowbray BESS.</p>
-          <p>Partnership with the Community Planning Alliance (700+ UK community organisations), Planning Aid England, CPRE, and the Better Planning Coalition.</p>
-          <p>Integrity-proven via a 31-assertion watchdog suite with zero TypeScript errors across 25k lines.</p>
-        </div>
-        <div class="system-links">
-          <a href="https://yourplanningvoice.com/landing" target="_blank" rel="noopener">→ yourplanningvoice.com</a>
-        </div>
-      </div>
-
-      <!-- DNI -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">Darwinian Novelty Indicator — Metascience</div>
-          <div class="system-domain">Pilot · MetaROR / SPRU</div>
-        </div>
-        <div class="system-body">
-          A retrieval-grounded, multi-judge instrument that evaluates genuine scientific novelty directly
-          from full manuscript text. Live 3-database retrieval waterfall (OpenAlex → Crossref → Semantic
-          Scholar), LLM counterfactual displacement reasoning, domain-adaptive dimension weighting, and an
-          Epistemic Groundedness Screen. Includes an automated Review Cap (0.45) and Ouroboros self-veto
-          logic.
-        </div>
-        <div class="system-result">
-          <p><strong>73.0% overall</strong> on the Liu &amp; Zhai (2026) Axiomatic Benchmark.</p>
-          <p><strong>SOTA 55.1% on Axiom 3</strong> (claim coverage) vs. 6% prior embedding best — a 9.2× margin.</p>
-          <p>Special Mention, UKRI Metascience Novelty Indicators Challenge (v4.0 abstract baseline).</p>
-          <p>Active human-calibration testing with MetaROR (Leiden) and SPRU (University of Sussex).</p>
-        </div>
-        <div class="system-links">
-          <a href="https://researchonresearchinstitute.substack.com/p/can-ai-tell-if-your-research-is-actually" target="_blank" rel="noopener">→ RoRI Publication</a>
-          <a href="https://doi.org/10.5281/zenodo.21508045" target="_blank" rel="noopener">→ Technical Companion</a>
-          <a href="https://dni-5-0-functions.vercel.app/dni" target="_blank" rel="noopener">→ Live Demo</a>
-        </div>
-      </div>
-
-      <!-- ARIADNE -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">ARIADNE — Biomedical &amp; Rare Disease Discovery</div>
-          <div class="system-domain">Rung 4 · Clinical Review</div>
-        </div>
-        <div class="system-body">
-          A neurosymbolic evolutionary engine that breeds, scores, and falsifies rare-disease mechanistic
-          hypotheses. Utilises a typed <code>CausalChain</code> graph with an 8-pressure selection genotype.
-          Grounds claims against Monarch KG, ClinGen validity tiers, gnomAD (BA1 population frequency hard
-          veto), HPO semantic similarity, and the BioGRID physical interactome.
-        </div>
-        <div class="system-result">
-          <p>Reconstructs established pleiotropic biology (FBN1, SCN5A, RYR1, LMNA).</p>
-          <p>Enforces deterministic directionality (GoF vs. LoF) via hard-coded clinical mappings.</p>
-          <p><strong>Executed collaboration agreement with the Platt Lab at the University of Oxford</strong> to validate the V-ATPase prediction through a pre-registered iPSC neuronal assay.</p>
-        </div>
-        <div class="system-links">
-          <a href="https://carlosarleo.github.io/ariadne-atlas/" target="_blank" rel="noopener">→ Interactive Atlas</a>
-        </div>
-      </div>
-
-      <!-- AEOLUS -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">AEOLUS — Net-Zero Estate Decarbonisation</div>
-          <div class="system-domain">Validated · 3 Pilots</div>
-        </div>
-        <div class="system-body">
-          A cyber-physical generative engine for public-sector decarbonisation and real-time energy
-          flexibility. Couples LLM proposal generation with five deterministic physics/finance engines
-          (PyPSA, HEM/SAP 10.2, CreditNature / DEFRA 4.0, Met Office UKCP18/23, Parity whole-life costing)
-          and five VDK judges enforcing hard constraints.
-        </div>
-        <div class="system-result">
-          <p>Tested on three unseen public-sector estates: Leeds Teaching Hospitals NHS Trust, Lewisham Council Housing, Bournemouth University.</p>
-          <p>Unlocked <strong>+£7.33M NPV</strong>, <strong>£8.66M/year energy bill savings</strong>, and <strong>31,120 tCO₂e/year carbon reduction</strong>.</p>
-          <p>Execution speed: sub-3 minutes per complete estate blueprint.</p>
-        </div>
-      </div>
-
-      <!-- PHYORA -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">Phyora / PhyOS / ELORA — AI Runtime Governance</div>
-          <div class="system-domain">Published · Open Source</div>
-        </div>
-        <div class="system-body">
-          A substrate-level governance framework that enforces structural alignment through real-time
-          inference control rather than prompt guidelines. PhyOS maintains thermodynamic property
-          standards while ELORA provides actuator control over sampling temperature, logit bias
-          distributions, and KV-cache management at sub-token resolution.
-        </div>
-        <div class="system-result">
-          <p><strong>First documented Constitutional Halt</strong> in an LLM inference system (smollm2:360m session termination).</p>
-          <p>89.6% autonomous repair success rate across 42 runs over 5M+ tokens of telemetry.</p>
-          <p>Universal 20–25% compute savings invariant across transformer models.</p>
-        </div>
-        <div class="system-links">
-          <a href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">→ Paper 1</a>
-          <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">→ Paper 2</a>
-        </div>
-      </div>
-
-      <!-- TRINITY -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">Trinity WFF — Regenerative Governance</div>
-          <div class="system-domain">Active Development</div>
-        </div>
-        <div class="system-body">
-          An 11-principle constitutional genotype engine (Wholeness, Nestedness, Place, Reciprocity, Nodal
-          Interventions, Pattern Literacy, Levels of Work, Temporal Justice, Distributed Authority,
-          Generative Conflict, Implementation Resistance) enforcing dual Gini limits. Project Mirror
-          injects real-time engine telemetry into the prompt context window.
-        </div>
-        <div class="system-result">
-          <p>Great Filter experiment: 100% initial population mortality at Generation 4 under hard constraints.</p>
-          <p>Automatic homeostatic repair triggered within 0.1 s, producing "Eve" frame recovery.</p>
-        </div>
-      </div>
-
-      <!-- AURA-ECHO -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">AURA-ECHO — Neurosymbolic Music Inference</div>
-          <div class="system-domain">Published</div>
-        </div>
-        <div class="system-body">
-          A neurosymbolic multi-agent engine operating over a continuous topological state space (MIDI
-          stream as a "cloud chamber"). Generates write-locked structural primitives across an evolutionary
-          arc (EMERGENCE → PLATEAU → DISSOLVE).
-        </div>
-        <div class="system-result">
-          <p>313 valid sessions / 18,819 high-resolution observations.</p>
-          <p>Independently reproduced four biological failure modes: Developmental Arrest, Metabolic Lock, Apoptosis, Brittle Rigidity.</p>
-          <p>Endorsed by Audrey Tang; 1,800+ paper downloads.</p>
-        </div>
-      </div>
-
-      <!-- OIKOS -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">OIKOS — Passivhaus Compliance Verification</div>
-          <div class="system-domain">Proof of Concept</div>
-        </div>
-        <div class="system-body">
-          A neurosymbolic verification system for Passivhaus Classic, Plus, Premium, and EnerPHit standards
-          across seven PHI climate zones. Six extraction sensors over architectural PDFs / PHPP models pass
-          values to a 12-criterion deterministic math genotype and a 5-persona expert AI panel.
-        </div>
-        <div class="system-result">
-          <p>Evaluated on the official PHI Darmstadt benchmark: <strong>10/10 extraction accuracy</strong>.</p>
-          <p>Zero false positives; exact agreement with published Passivhaus certification ground truth.</p>
-        </div>
-      </div>
-
-      <!-- ADE -->
-      <div class="system">
-        <div class="system-head">
-          <div class="system-title">Architected Discovery Engine — Long-Horizon Architecture</div>
-          <div class="system-domain">System Blueprint</div>
-        </div>
-        <div class="system-body">
-          A proposal for recursive autonomous scientific discovery. Inverts DNI v6.0 into a fitness function
-          within a closed loop: Cartographer (mapping 240M voids in literature) → Architect (constitutional
-          mutation engine) → Gauntlet (DNI evaluation) → Breeder (MAP-Elites evolutionary search) →
-          Simulator (digital-twin grounding).
-        </div>
-        <div class="system-result">
-          <p>Full technical blueprint completed (April 2026).</p>
-          <p>Designed to produce machine-authored, simulation-grounded hypotheses with pre-registered experimental protocols.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ── PROFESSIONAL TRAJECTORY ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Professional Trajectory</p>
-    <h2>Career Thread</h2>
-    <p class="section-intro">
-      The transition from spatial design to computational systems design represents a continuous inquiry
-      into structural integrity, systemic resilience, and non-arbitrary boundary conditions.
-    </p>
-
-    <div class="trajectory">
-
-      <div class="traj-item">
-        <div class="traj-year">2024 – Present</div>
-        <div>
-          <div class="traj-role">Founder &amp; Principal Architect</div>
-          <div class="traj-place">Localis AI Ltd · Newcastle upon Tyne, UK</div>
-          <div class="traj-body">
-            Independent research lab engineering Constitutional Physics and Aitiopoietic Cognition across
-            eight functional domains.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2024 – Present</div>
-        <div>
-          <div class="traj-role">Senior Lead Architect</div>
-          <div class="traj-place">GreenHouse · Remote (Africa &amp; Caribbean)</div>
-          <div class="traj-body">
-            Large-scale regenerative masterplans across Zambia, Gabon, Zimbabwe, and Jamaica. Applied Five
-            Capitals frameworks to model socio-ecological flows. Designed the nested governance protocols
-            that later became the precursor to the Constitutional Physics architecture.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2024 – Present</div>
-        <div>
-          <div class="traj-role">Project Architect</div>
-          <div class="traj-place">Publius / VESI · New York, USA</div>
-          <div class="traj-body">
-            Equity-driven participatory design for a community development corporation in Trenton, NJ.
-            Trust-based housing, heritage restoration, reparative planning, and land justice. The structural
-            mapping of lived community knowledge to formal administrative criteria developed on this project
-            became the operational model for the CPSS.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2020 – 2024</div>
-        <div>
-          <div class="traj-role">Co-Founder</div>
-          <div class="traj-place">Atelier Terre · Marrakesh, Morocco</div>
-          <div class="traj-body">
-            Village-scale regeneration model combining circular economy frameworks (UKGBC metrics adapted
-            for rural contexts), traditional construction knowledge, and artisan cooperatives. Material
-            sovereignty, local production loops, and cultural expression as design constraints.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2023</div>
-        <div>
-          <div class="traj-role">Senior Architect</div>
-          <div class="traj-place">Hassell · London</div>
-          <div class="traj-body">
-            Sustainability strategy for Sohar Smart City, Oman — integrating circular economy, 5-minute city
-            principles, and biodiversity objectives across a national masterplan.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2020</div>
-        <div>
-          <div class="traj-role">Project Architect</div>
-          <div class="traj-place">Medical Architecture · Newcastle</div>
-          <div class="traj-body">
-            Design development to RIBA Stage 1 for the 23,000 m² New Specialist Hospital Building at the
-            Royal Victoria Infirmary, Newcastle.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2016 – 2019</div>
-        <div>
-          <div class="traj-role">Associate Architect</div>
-          <div class="traj-place">FaulknerBrowns Architects · Newcastle</div>
-          <div class="traj-body">
-            Led design development across Bristol Callowhill Court, Maiden Castle Sport Hall, Northumbria
-            School of Architecture, and other mixed-use and higher-education projects across the UK and
-            Ireland.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2013 – 2015</div>
-        <div>
-          <div class="traj-role">Architect / Researcher (AMO)</div>
-          <div class="traj-place">OMA · Doha &amp; Dubai</div>
-          <div class="traj-body">
-            Led urban design for large-scale infrastructure under Rem Koolhaas — the Orbital Highway (Doha),
-            RTA Jumeirah Road (Dubai), and the Qatar Tourism Strategy. Combined design coordination with
-            research on spatial practices in neoliberal cities.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2008 – 2015</div>
-        <div>
-          <div class="traj-role">Senior Architect</div>
-          <div class="traj-place">AV · Barcelona, Doha, Dubai</div>
-          <div class="traj-body">
-            Architectural projects from residential towers to masterplan clusters, spanning Spain and the
-            Gulf.
-          </div>
-        </div>
-      </div>
-
-      <div class="traj-item">
-        <div class="traj-year">2007 – 2009</div>
-        <div>
-          <div class="traj-role">Architect Assistant</div>
-          <div class="traj-place">CNS SPA Milano · Milan</div>
-          <div class="traj-body">
-            Contributed to major projects under I.M. Pei (Regione Lombardia Headquarters, Mediaset, Pirelli
-            RCS).
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ── PUBLICATIONS ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Publications</p>
-    <h2>Papers &amp; Preprints</h2>
-    <p class="section-intro">
-      Peer-reviewed work in preparation, plus published preprints establishing the Constitutional Physics
-      framework and the Darwinian Novelty Indicator.
-    </p>
-
-    <div class="pub">
-      <div>
-        <div class="pub-title">Open law, uneven in practice: failure modes of programmatic access to statutory planning data in England</div>
-        <div class="pub-meta">
-          In final preparation for submission · Target: <em>Big Data &amp; Society</em> or <em>Government Information Quarterly</em>
-        </div>
-      </div>
-      <div class="pub-status">In Prep</div>
-    </div>
-
-    <div class="pub">
-      <div>
-        <div class="pub-title">Epistemic Enclosure and the Neo-Advocacy Model</div>
-        <div class="pub-meta">
-          Co-authored with Professor Gavin Parker (University of Reading) · Target: <em>Town Planning Review</em>
-        </div>
-      </div>
-      <div class="pub-status">In Dev</div>
-    </div>
-
-    <div class="pub">
-      <div>
-        <div class="pub-title">Constitutional Physics: Empirical Validation of Aitiopoietic Cognition in Artificial Substrates</div>
-        <div class="pub-meta">
-          Zenodo, 2026 · <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">DOI 10.5281/zenodo.19616290</a>
-        </div>
-      </div>
-      <div class="pub-status">Published</div>
-    </div>
-
-    <div class="pub">
-      <div>
-        <div class="pub-title">Constitutional Physics: Empirical Validation of Aitiopoietic Cognition in Artificial Governance Systems</div>
-        <div class="pub-meta">
-          Zenodo, 2026 · <a href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">DOI 10.5281/zenodo.17692900</a>
-        </div>
-      </div>
-      <div class="pub-status">Published</div>
-    </div>
-
-    <div class="pub">
-      <div>
-        <div class="pub-title">Can AI tell if your research is actually new?</div>
-        <div class="pub-meta">
-          Research on Research Institute (RoRI), 2026 ·
-          <a href="https://researchonresearchinstitute.substack.com/p/can-ai-tell-if-your-research-is-actually" target="_blank" rel="noopener">Read article</a>
-        </div>
-      </div>
-      <div class="pub-status">Published</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ── EDUCATION ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Education</p>
-    <h2>Degrees</h2>
-
-    <div class="edu">
-      <div class="edu-year">2019 – Present</div>
-      <div>
-        <div class="edu-degree">PhD Candidate (on hold), Architecture, Planning and Landscape</div>
-        <div class="edu-inst">Newcastle University · Thesis: <em>Translocalism's Paradox: Regenerative Development in Extended Urbanisation Contexts</em></div>
-      </div>
-    </div>
-
-    <div class="edu">
-      <div class="edu-year">2010</div>
-      <div>
-        <div class="edu-degree">M.Arch., Theory and Practice of Architectural Design</div>
-        <div class="edu-inst">Polytechnic University of Catalonia (UPC)</div>
-      </div>
-    </div>
-
-    <div class="edu">
-      <div class="edu-year">2007</div>
-      <div>
-        <div class="edu-degree">M.Arch., Theoretical and Technological Aspects in Architecture</div>
-        <div class="edu-inst">Polytechnic University of Milan</div>
-      </div>
-    </div>
-
-    <div class="edu">
-      <div class="edu-year">1999 – 2004</div>
-      <div>
-        <div class="edu-degree">B.Arch.</div>
-        <div class="edu-inst">Central University of Venezuela</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ── ACADEMIC PARTNERSHIPS ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Academic Partnerships</p>
-    <h2>Collaborations</h2>
-    <p class="section-intro">
-      Active research collaborations across UK and European institutions, spanning planning studies,
-      metascience, rare-disease biology, and constitutional AI.
-    </p>
-
-    <div class="recog">
-      <div><span class="recog-name">University of Reading</span> — Professor Gavin Parker, Professor of Planning Studies. Academic advisor and co-author on the epistemic enclosure paper.</div>
-      <div class="recog-year">Reading</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">University of Manchester</span> — Professor Paul O'Hare. Academic partner for the next phase of the civic research programme.</div>
-      <div class="recog-year">Manchester</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">SPRU, University of Sussex</span> — Sarah Otter and Joshua Moon. Research collaboration on the DNI methodology and calibration study.</div>
-      <div class="recog-year">Sussex</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">Platt Lab, University of Oxford</span> — Professor Frances Platt. Executed collaboration agreement for ARIADNE validation.</div>
-      <div class="recog-year">Oxford</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">CLEA-VUB, Free University of Brussels</span> — Dr Tomas Veloz. Co-author on the Constitutional Physics framework.</div>
-      <div class="recog-year">Brussels</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">NIDC, Newcastle University</span> — National Innovation Centre for Data. Working collaboration on Dual-Gate Graph-RAG architecture.</div>
-      <div class="recog-year">Newcastle</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ── CIVIC PARTNERSHIPS ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Civic Partnerships</p>
-    <h2>Community &amp; Policy</h2>
-
-    <div class="recog">
-      <div><span class="recog-name">Community Planning Alliance</span> — 700+ member organisations. The CPSS is deployed in partnership with the CPA.</div>
-      <div class="recog-year">National</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">Planning Aid England (RTPI)</span> — in dialogue on the relationship between CPSS and Planning Aid's volunteer-led advice service.</div>
-      <div class="recog-year">National</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">CPRE</span> — Campaign to Protect Rural England. In dialogue following the Defensibility Gap findings.</div>
-      <div class="recog-year">National</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">Better Planning Coalition</span> — coalition of ~30 NGOs campaigning for planning reform.</div>
-      <div class="recog-year">National</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">Planning APPG (STAUNCH)</span> — All-Party Parliamentary Group on Planning.</div>
-      <div class="recog-year">Westminster</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ── RECOGNITION ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Recognition</p>
-    <h2>Awards &amp; Scholarships</h2>
-
-    <div class="recog">
-      <div><span class="recog-name">Translocalism's Paradox: Regenerative Development in Extended Urbanisation Contexts</span> — Great Manchester case study: housing, environmental preservation, and neoliberal land policy. PhD Research, Newcastle University.</div>
-      <div class="recog-year">Newcastle</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">National Excellence Scholarship, Postgraduate Studies</span> — Politecnico di Milano.</div>
-      <div class="recog-year">Milan</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">2nd Place Award, National Urban and Landscape Design Competition</span> — Rescue of Panamerican Highway.</div>
-      <div class="recog-year">Venezuela</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">Awarded National Excellence Scholarship for academic performance</span> — Postgraduate Studies, Polytechnic University of Milan.</div>
-      <div class="recog-year">Milan</div>
-    </div>
-
-    <div class="recog">
-      <div><span class="recog-name">Special Mention, UKRI Metascience Novelty Indicators Challenge</span> — Darwinian Novelty Indicator v4.0 abstract baseline.</div>
-      <div class="recog-year">2026</div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ── TECHNICAL CAPABILITIES ── -->
-<section>
-  <div class="wrap">
-    <p class="section-kicker">Technical Capabilities</p>
-    <h2>Stack &amp; Methods</h2>
-
-    <div class="system" style="border-top:none; padding-top:0;">
-      <div class="system-body">
-        <strong>Languages.</strong> TypeScript, Python (PyTorch, pandas, numpy, scipy, PySAL), R, SQL.
-      </div>
-      <div class="system-body">
-        <strong>Frameworks &amp; tooling.</strong> React, Next.js, Node.js, Svelte, Zod schema validation, Flask,
-        Firebase, Postgres, Redis, Weaviate/Qdrant.
-      </div>
-      <div class="system-body">
-        <strong>Geospatial.</strong> QGIS, Leaflet, Mapbox, MapLibre, Deck.gl, PMTiles, GeoServer/WFS,
-        postcodes.io, ONS Open Geography, British National Grid reprojection.
-      </div>
-      <div class="system-body">
-        <strong>Statistical &amp; methodological.</strong> Mann-Whitney U, Fisher's exact, odds ratios with
-        confidence intervals, Mantel-Haenszel adjustment, Benjamini-Hochberg FDR, Bonferroni FWER,
-        Global Moran's I spatial autocorrelation, logistic regression, discriminant analysis.
-      </div>
-      <div class="system-body">
-        <strong>Constitutional AI architecture.</strong> Five-pillar methodology (Constitutional Genotype,
-        Frame-Based Principled Reasoning, Dialectical Pressure, Thermodynamic Coupling, Evolutionary Loop),
-        four-validator manifolds, tri-state error typing, adversarial ensembles, GATE-4 hard stops.
-      </div>
-      <div class="system-body">
-        <strong>DevOps.</strong> Git, GitHub Actions, pytest, Vitest, Sentry, OpenTelemetry, Vercel, Cloudflare.
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-
-      <div>
-        <div class="foot-label">Contact</div>
-        <div class="foot-value">
-          <a href="mailto:c.arleo@localis-ai.uk">c.arleo@localis-ai.uk</a><br>
-          Newcastle upon Tyne, UK
-        </div>
-      </div>
-
-      <div>
-        <div class="foot-label">Portfolio</div>
-        <div class="foot-value">
-          <a href="https://carlosarleo.github.io" target="_blank" rel="noopener">carlosarleo.github.io</a><br>
-          <a href="https://github.com/CarlosArleo" target="_blank" rel="noopener">github.com/CarlosArleo</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="foot-label">Zenodo</div>
-        <div class="foot-value">
-          <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">DOI 10.5281/zenodo.19616290</a><br>
-          <a href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">DOI 10.5281/zenodo.17692900</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="foot-label">References</div>
-        <div class="foot-value">
-          Available on request.<br>
-          Prof. Gavin Parker (Reading),<br>
-          Prof. Paul O'Hare (Manchester),<br>
-          Sarah Otter (SPRU, Sussex)
-        </div>
-      </div>
-
-    </div>
-
-    <div style="margin-top:48px; padding-top:20px; border-top:1px solid var(--hair); font-family:var(--mono); font-size:0.7rem; color:var(--soft); letter-spacing:0.04em;">
-      © 2026 Carlos Arleo / Localis AI Limited. All Rights Reserved.
-    </div>
-
-  </div>
-</footer>
+  <p style="margin-top:8px">Smaller experiments include a regenerative-governance model (Trinity), a music-inference engine (Aura-Echo), a Passivhaus compliance checker (Oikos) and a design for an automated discovery loop.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Research on English planning</h2>
+  <p style="margin-bottom:18px">My doctoral work audits 652 contested planning sites, drawn from 852 community submissions and cross-referenced against 65 government datasets. The main findings are:</p>
+  <ul>
+    <li><strong>Protection is uneven.</strong> Ecological protection is more common in more affluent areas, while heritage protection is more common in less affluent ones.</li>
+    <li><strong>Farmland.</strong> Speculative infrastructure proposals concentrate on high-grade agricultural land.</li>
+    <li><strong>Data gaps.</strong> Ecological records are thinnest in the commuter-belt fringe, and several national datasets were unavailable or restricted when I queried them.</li>
+    <li><strong>Limits.</strong> I found no detectable difference in planning outcomes, so the work concerns the consultation stage rather than final decisions.</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Experience</h2>
+  <div class="row"><div class="when">2024 – present</div><div><div class="what">Founder &amp; Lead Researcher</div><div class="where">Localis AI Ltd, Newcastle upon Tyne</div><p>Independent research lab building and testing the tools above.</p></div></div>
+  <div class="row"><div class="when">2024 – present</div><div><div class="what">Senior Lead Architect</div><div class="where">GreenHouse, remote (Africa &amp; Caribbean)</div><p>Regenerative masterplans across Zambia, Gabon, Zimbabwe and Jamaica, using the Five Capitals framework.</p></div></div>
+  <div class="row"><div class="when">2024 – present</div><div><div class="what">Project Architect</div><div class="where">Publius / VESI, New York</div><p>Participatory design for a community development project in Trenton, NJ: housing, heritage restoration and land justice.</p></div></div>
+  <div class="row"><div class="when">2020 – 2024</div><div><div class="what">Co-Founder</div><div class="where">Atelier Terre, Marrakesh</div><p>Village-scale regeneration model combining circular-economy metrics, traditional construction and artisan cooperatives.</p></div></div>
+  <div class="row"><div class="when">2023</div><div><div class="what">Senior Architect</div><div class="where">HASSELL, London</div><p>Sustainability strategy for Sohar Smart City, Oman.</p></div></div>
+  <div class="row"><div class="when">2020</div><div><div class="what">Project Architect</div><div class="where">Medical Architecture, Newcastle</div><p>Design to RIBA Stage 1 for the New Specialist Hospital Building, Royal Victoria Infirmary.</p></div></div>
+  <div class="row"><div class="when">2016 – 2019</div><div><div class="what">Associate Architect</div><div class="where">FaulknerBrowns Architects, Newcastle</div><p>Led design development on mixed-use and higher-education projects in the UK and Ireland, including Maiden Castle Sport Hall and Northumbria School of Architecture.</p></div></div>
+  <div class="row"><div class="when">2013 – 2015</div><div><div class="what">Architect / Researcher (AMO)</div><div class="where">OMA, Doha &amp; Dubai</div><p>Urban design for infrastructure projects under Rem Koolhaas, alongside research on spatial practices in Gulf cities.</p></div></div>
+  <div class="row"><div class="when">2008 – 2015</div><div><div class="what">Senior Architect</div><div class="where">AV, Barcelona, Doha, Dubai</div><p>Residential towers and masterplan projects in Spain and the Gulf.</p></div></div>
+  <div class="row"><div class="when">2007 – 2009</div><div><div class="what">Architect Assistant</div><div class="where">CNS SPA Milano, Milan</div><p>Projects under I.M. Pei, including the Regione Lombardia Headquarters.</p></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Publications</h2>
+  <ul>
+    <li><strong>Constitutional Physics: Empirical Validation of Aitiopoietic Cognition in Artificial Substrates.</strong> Zenodo, 2026. <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">doi.org/10.5281/zenodo.19616290</a></li>
+    <li><strong>Constitutional Physics: Empirical Validation of Aitiopoietic Cognition in Artificial Governance Systems.</strong> Zenodo, 2026. <a href="https://doi.org/10.5281/zenodo.17692900" target="_blank" rel="noopener">doi.org/10.5281/zenodo.17692900</a></li>
+    <li><strong>Can AI tell if your research is actually new?</strong> Research on Research Institute, 2026. <a href="https://researchonresearchinstitute.substack.com/p/can-ai-tell-if-your-research-is-actually" target="_blank" rel="noopener">Read the article</a></li>
+    <li><strong>In preparation:</strong> Open in law, uneven in practice: failure modes of programmatic access to statutory planning data in England.</li>
+    <li><strong>In preparation:</strong> Epistemic Enclosure and the Neo-Advocacy Model, with Professor Gavin Parker (University of Reading).</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Education</h2>
+  <div class="row"><div class="when">2019 – present</div><div><div class="what">PhD candidate (on hold), Architecture, Planning and Landscape</div><div class="where">Newcastle University</div></div></div>
+  <div class="row"><div class="when">2010</div><div><div class="what">M.Arch., Theory and Practice of Architectural Design</div><div class="where">Polytechnic University of Catalonia</div></div></div>
+  <div class="row"><div class="when">2007</div><div><div class="what">M.Arch., Theoretical and Technological Aspects in Architecture</div><div class="where">Polytechnic University of Milan</div></div></div>
+  <div class="row"><div class="when">1999 – 2004</div><div><div class="what">B.Arch.</div><div class="where">Central University of Venezuela</div></div></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Collaborators</h2>
+  <ul>
+    <li><strong>University of Reading:</strong> Professor Gavin Parker, planning studies; co-author.</li>
+    <li><strong>University of Manchester:</strong> Professor Paul O’Hare.</li>
+    <li><strong>SPRU, University of Sussex:</strong> Sarah Otner and Joshua Moon, on the DNI calibration study.</li>
+    <li><strong>University of Oxford:</strong> Professor Frances Platt’s lab, on Ariadne.</li>
+    <li><strong>Free University of Brussels:</strong> Dr Tomas Veloz; co-author.</li>
+    <li><strong>Newcastle University:</strong> National Innovation Centre for Data.</li>
+    <li><strong>Community and policy groups:</strong> Community Planning Alliance, Planning Aid England, CPRE, Better Planning Coalition.</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Awards</h2>
+  <ul>
+    <li>Special Mention, UKRI Metascience Novelty Indicators Challenge (earlier version of DNI).</li>
+    <li>National Excellence Scholarship, postgraduate studies, Polytechnic University of Milan.</li>
+    <li>2nd place, National Urban and Landscape Design Competition: Rescue of Panamerican Highway.</li>
+  </ul>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Skills</h2>
+  <p><strong>Programming:</strong> TypeScript, Python, R, SQL; React, Next.js, Node.js, Flask, Postgres.</p>
+  <p><strong>Geospatial:</strong> QGIS, Leaflet, Mapbox, GeoServer/WFS, ONS Open Geography.</p>
+  <p><strong>Statistics:</strong> non-parametric tests, logistic regression, spatial autocorrelation, multiple-comparison correction.</p>
+</div></section>
+
+<footer><div class="wrap">
+  <p>References available on request. <a href="mailto:c.arleo@localis-ai.uk">c.arleo@localis-ai.uk</a> · Newcastle upon Tyne, UK</p>
+  <p style="margin-top:10px">© 2026 Carlos Arleo / Localis AI Limited. All rights reserved.</p>
+</div></footer>
 
 </body>
 </html>
