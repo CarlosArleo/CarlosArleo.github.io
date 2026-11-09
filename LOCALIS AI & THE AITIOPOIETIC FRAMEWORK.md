@@ -1,8 +1,4 @@
-
 ---
-
-
-
 # **LOCALIS AI & THE AITIOPOIETIC FRAMEWORK**
 
 ## **Institutional Partnership & Executive Dossier**
@@ -11,9 +7,7 @@
 *Founder & Lead Systems Architect, Localis AI Ltd*
 *Contact:* `c.arleo@localis-ai.uk` | `+44 7881 647716`
 *Research Repository:* [carlosarleo.github.io](https://carlosarleo.github.io/) | [Zenodo Preprints](https://doi.org/10.5281/zenodo.17692900)
-
 ---
-
 ### **Executive Summary**
 
 Current generative AI architectures suffer from the **Thermodynamic Disconnect**: models optimize for textual fluency rather than structural, physical, or legal validity. Reinforcement Learning from Human Feedback (RLHF) trains systems to *mimic* alignment rather than maintain it as a survival condition.
@@ -26,16 +20,16 @@ Over the past 10 months, this methodology has been empirically validated across 
 
 ### **The 8 Validated Substrate Engines**
 
-| Substrate / Engine       | Domain                    | Architecture & Invariants                                                                                                          | Core Empirical Validation                                                                                                                                         |
-| :----------------------- | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **DNI v6.0**       | Metascience & Novelty     | Full-text RANA retrieval waterfall (OpenAlex, Crossref, Semantic Scholar), Review Cap (0.45), Epistemic Groundedness Screen.       | **73.0% overall** on Liu & Zhai (2026) Axiomatic Benchmark; **SOTA 55.1% on Axiom 3 (claim coverage)** vs 6% baseline.                                |
-| **ARIADNE**        | Biomedical & Rare Disease | Typed`CausalChain` graph (Metabolic Closure), gnomAD BA1 variant frequency veto, ClinGen validity tiers, $S_{ab}$ interactome. | Reconstructs FBN1, SCN5A, RYR1, LMNA; discovers Tyrosine & Lysosomal pathways.**At Rung 4 Clinical Geneticist Review.**                                     |
-| **CPSS (Vol. V)**  | UK Statutory Planning     | 54 live UK data feeds, 13 Zod schemas, 4-validator manifold (Case-Law Factbook, Archetype$\times$ Ground matrix).                | **88%–93% independent legal verification score** across 3 UK cases; deploying with Community Planning Alliance (800+ orgs).                                |
+| Substrate / Engine       | Domain                    | Architecture & Invariants                                                                                                          | Core Empirical Validation                                                                                                                                   |
+| :----------------------- | :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **DNI v6.0**       | Metascience & Novelty     | Full-text RANA retrieval waterfall (OpenAlex, Crossref, Semantic Scholar), Review Cap (0.45), Epistemic Groundedness Screen.       | **73.0% overall** on Liu & Zhai (2026) Axiomatic Benchmark; **SOTA 55.1% on Axiom 3 (claim coverage)** vs 6% baseline.                          |
+| **ARIADNE**        | Biomedical & Rare Disease | Typed`CausalChain` graph (Metabolic Closure), gnomAD BA1 variant frequency veto, ClinGen validity tiers, $S_{ab}$ interactome. | Reconstructs FBN1, SCN5A, RYR1, LMNA; discovers Tyrosine & Lysosomal pathways.**At Rung 4 Clinical Geneticist Review.**                               |
+| **CPSS (Vol. V)**  | UK Statutory Planning     | 54 live UK data feeds, 13 Zod schemas, 4-validator manifold (Case-Law Factbook, Archetype$\times$ Ground matrix).                | **88%–93% independent legal verification score** across 3 UK cases; deploying with Community Planning Alliance (800+ orgs).                          |
 | **AEOLUS**         | Net-Zero & Infrastructure | 5 deterministic engines (PyPSA, HEM/SAP 10.2, CreditNature BNG, UKCP18, Parity) + 5 VDK judges (Gini$\le 0.45$).                 | Unlocked**+£7.33M NPV**, **£8.66M/yr energy bill savings**, and **31,120 tCO₂e/yr reduction** across 3 public sector estates in $<6$ mins. |
-| **Phyora / PhyOS** | AI Alignment & Sampling   | Substrate-level thermodynamic governance ($C=0.88$, NESS work asymmetry, $\rho/\eta = 1.153$, ELORA actuator layer).           | First documented**LLM Constitutional Halt**; $89.6\%$ autonomous repair rate across 42 runs; $20–25\%$ universal compute savings.                      |
-| **Trinity WFF**    | Regenerative Governance   | 11-principle constitutional genotype, dual-Gini limits, Project Mirror self-awareness context.                                     | Great Filter 100% initial mortality$\rightarrow$ "Eve" frame homeostatic recovery ($63.1\%$ fitness jump).                                                    |
-| **AURA-ECHO**      | Neurosymbolic Music       | Continuous topological state space (MIDI cloud chamber), write-lock primitives.                                                    | 313 sessions; independently reproduced 4 biological failure modes (Apoptosis, Arrest, Lock, Rigidity).                                                            |
-| **OIKOS**          | Passivhaus Compliance     | 6 extraction sensors, 12-criterion deterministic math genotype (`passivhausGenotype.ts`), 5 expert AI judges.                    | **10/10 extraction accuracy** on official PHI Darmstadt benchmark; 0 false positives.                                                                       |
+| **Phyora / PhyOS** | AI Alignment & Sampling   | Substrate-level thermodynamic governance ($C=0.88$, NESS work asymmetry, $\rho/\eta = 1.153$, ELORA actuator layer).           | First documented**LLM Constitutional Halt**; $89.6\%$ autonomous repair rate across 42 runs; $20–25\%$ universal compute savings.                |
+| **Trinity WFF**    | Regenerative Governance   | 11-principle constitutional genotype, dual-Gini limits, Project Mirror self-awareness context.                                     | Great Filter 100% initial mortality$\rightarrow$ "Eve" frame homeostatic recovery ($63.1\%$ fitness jump).                                              |
+| **AURA-ECHO**      | Neurosymbolic Music       | Continuous topological state space (MIDI cloud chamber), write-lock primitives.                                                    | 313 sessions; independently reproduced 4 biological failure modes (Apoptosis, Arrest, Lock, Rigidity).                                                      |
+| **OIKOS**          | Passivhaus Compliance     | 6 extraction sensors, 12-criterion deterministic math genotype (`passivhausGenotype.ts`), 5 expert AI judges.                    | **10/10 extraction accuracy** on official PHI Darmstadt benchmark; 0 false positives.                                                                 |
 
 ---
 
