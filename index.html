@@ -243,6 +243,12 @@ footer p{color:var(--soft)}
         <a href="https://doi.org/10.5281/zenodo.19616290" target="_blank" rel="noopener">Preprint 2</a>
       </div>
     </article>
+
+    <article class="project">
+      <header><h3>PhyOS gateway</h3><span class="status s-res"><i></i>Draft paper</span></header>
+      <p>A gateway that sits between an AI agent and the tools it uses. It holds the credentials itself and checks every tool call against a written policy before running it. Tested with live AI models against GitHub’s official tool server, on a publicly reported attack in which a public issue tells the agent to copy private data into a public repository: with the gateway, 0 of 140 live runs leaked, while in a paired experiment without it, 45 of 60 did.</p>
+      <div class="links"><a href="https://localis-gateway-demo.vercel.app/" target="_blank" rel="noopener">Live demo</a></div>
+    </article>
   </div>
 
   <p class="more">Smaller experiments include a regenerative-governance model (Trinity), a music-inference engine (Aura-Echo), a Passivhaus compliance checker (Oikos) and a design for an automated discovery loop.</p>
